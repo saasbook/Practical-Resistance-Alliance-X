@@ -9,8 +9,13 @@
 
 ## Development
 
+The app integrates ReactJS and Rails using [react-rails](https://github.com/reactjs/react-rails)
+
+#### Note: Make sure you have [yarn](https://yarnpkg.com/en/) installed in your computer.
+
 ```
-$ bundle
+$ bundle install --without production
+$ yarn
 $ rails s
 ```
 
