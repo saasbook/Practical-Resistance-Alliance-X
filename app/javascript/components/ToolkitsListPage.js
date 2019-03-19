@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ToolkitView from "./ToolkitView";
 
 export class ToolkitsListPage extends Component {
   renderToolkitList() {
