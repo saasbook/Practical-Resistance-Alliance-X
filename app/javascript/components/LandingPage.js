@@ -6,9 +6,11 @@ export class LandingPage extends Component {
       <div className="landing">
         <div className="text-center landing-center">
           <h1>Practical Resistance Alliance X</h1>
-          <button type="button" className="btn btn-outline-primary">
-            GET STARTED
-          </button>
+          <a href="/category/index">
+            <button type="button" className="btn btn-outline-primary">
+              GET STARTED
+            </button>
+          </a>
         </div>
       </div>
     );
