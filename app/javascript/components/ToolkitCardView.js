@@ -21,20 +21,21 @@ export default class ToolkitCardView extends Component {
       <div
         className="card"
         style={{
-          width: "18rem",
           boxShadow: "1px 1px 8px rgb(211,211,211)",
           borderRadius: "15px",
           overflow: "hidden"
         }}
       >
-        <img className="card-img-top" src={randimg} alt="Card image cap" />
+        <img
+          className="card-img-top"
+          src={randimg}
+          alt="Card image cap"
+          style={{ height: "250px" }}
+        />
 
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
+          <h5 className="card-title">{this.props.info.title}</h5>
+          <p className="card-text">{this.props.info.description}</p>
           <a href="#" className="btn btn-primary">
             View More
           </a>
