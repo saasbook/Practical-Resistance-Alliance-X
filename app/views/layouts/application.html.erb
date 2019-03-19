@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <%= react_component("Navbar") %>
+    <%= react_component("Navbar", {path: request.env['PATH_INFO']}) %>
     <%= yield %>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
