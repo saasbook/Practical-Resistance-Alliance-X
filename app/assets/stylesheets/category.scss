@@ -1,3 +1,36 @@
 // Place all the styles related to the Category controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category-slogan {
+  padding: 50px 10px 10px 10px;
+  margin: 10px auto;
+
+  h5 {
+    font-weight: 200;
+  }
+}
+
+.category-card {
+  margin: 20px auto;
+  height: 200px;
+  width: 300px;
+  text-align: center;
+  background: #02b3e4;
+  color: white;
+  box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+
+  h5 {
+    position: relative;
+    top: 45%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &:hover {
+    box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2);
+    cursor: pointer;
+  }
+}
