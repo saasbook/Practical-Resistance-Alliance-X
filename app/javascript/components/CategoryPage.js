@@ -20,7 +20,7 @@ export class CategoryPage extends Component {
     const backgroundColor = this.state.backgroundColor;
     return this.state.categoryList.map((category, index) => {
       return (
-        <div className="col-md-4">
+        <div className="col-md-4" key={category}>
           <a href={`/category/${category}`} style={{ textDecoration: "None" }}>
             <div
               className="category-card"
