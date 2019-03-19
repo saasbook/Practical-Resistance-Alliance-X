@@ -21,14 +21,16 @@ export class CategoryPage extends Component {
     return this.state.categoryList.map((category, index) => {
       return (
         <div className="col-md-4">
-          <div
-            className="category-card"
-            style={{
-              background: `${backgroundColor[index % backgroundColor.length]}`
-            }}
-          >
-            <h5>{category}</h5>
-          </div>
+          <a href={`/category/${category}`} style={{ textDecoration: "None" }}>
+            <div
+              className="category-card"
+              style={{
+                background: `${backgroundColor[index % backgroundColor.length]}`
+              }}
+            >
+              <h5>{category}</h5>
+            </div>
+          </a>
         </div>
       );
     });
