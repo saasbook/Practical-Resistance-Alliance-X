@@ -20,3 +20,4 @@ $ rails s
 ```
 
 ## Deploy
+Heroku: https://thawing-reef-55587.herokuapp.com/
