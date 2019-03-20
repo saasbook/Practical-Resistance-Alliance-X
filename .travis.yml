@@ -1,7 +1,10 @@
 language: ruby
-rvm: - 2.4.2
+rvm:
+  - 2.4.2
 
-install: - bundle install
+install:
+  - bundle install
   - yarn
 
-script: - bundle exec rake webpacker:compile
+script:
+  - bundle exec rake webpacker:compile
