@@ -53,6 +53,20 @@ group :development, :test do
   # sqlite for dev
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.3.6'
+  # For JavaScript testing
+  gem 'jasmine-rails' 
+end
+
+# setup Cucumber, RSpec, Guard support
+group :test do
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'simplecov', :require => false
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels' # basic imperative step defs
+  gem 'database_cleaner' # required by Cucumber
+  gem 'factory_girl_rails' # if using FactoryGirl
+  gem 'metric_fu'        # collect code metrics
 end
 
 group :development do
