@@ -39,3 +39,6 @@ yarn-debug.log*
 
 # Ignore Coverage
 coverage/
+
+# Ignore application configuration
+/config/application.yml
