@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <%= react_component("Navbar", {path: request.env['PATH_INFO']}) %>
+    <%= react_component("Navbar", {path: request.env['PATH_INFO']}, {prerender: true}) %>
     <%= yield %>
   </body>
 </html>
