@@ -15,6 +15,9 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    
+    when /^the category\s?page$/
+      '/category/index'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
