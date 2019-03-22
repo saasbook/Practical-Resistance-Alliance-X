@@ -53,6 +53,8 @@ group :development, :test do
   # sqlite for dev
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.3.6'
+  # For JavaScript testing
+  gem 'jasmine-rails' 
 end
 
 # setup Cucumber, RSpec, Guard support
@@ -74,8 +76,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  # For JavaScript testing
-  gem 'jasmine-rails' 
 end
 
 group :production do
