@@ -7,4 +7,5 @@ Feature: User navigate between pages
 
   Scenario: Go to category page from index page
     Given I am on the home page
-    When I press "start_button"
+    When I follow "GET STARTED"
+    Then I should be on the category page
