@@ -1,9 +1,9 @@
 class CategoryController < ApplicationController
   def index
-    query = Toolkit.select(:category)
+    query = Toolkit.select(:category).map(&:category).uniq
     @categories = []
-    query.each do |c|
-        @categories.push(c.category)
+    query.each do |q|
+        @categories.push(q)
     end
     puts @categories
   end
