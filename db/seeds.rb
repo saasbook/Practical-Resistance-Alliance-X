@@ -21,5 +21,5 @@
 @step1 = Step.create({:content => "go to hell", :number => 1})
 @step2 = Step.create({:content => "go to hell too", :number => 2})
 
+@toolkit1.steps << @step2
 @toolkit1.steps << @step1
-@toolkit2.steps << @step2
