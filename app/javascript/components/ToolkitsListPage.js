@@ -6,28 +6,7 @@ export class ToolkitsListPage extends Component {
     super(props);
 
     this.state = {
-      dummyInfo: [
-        {
-          title: "How to Neque porr",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt augue sit amet nunc ultricies pellentesque. Mauris iaculis sapien eros, vel accumsan sem sollicitudin vitae. "
-        },
-        {
-          title: "How to ac luctus m",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt augue sit amet nunc ultricies pellentesque. Mauris iaculis sapien eros, vel accumsan sem sollicitudin vitae. "
-        },
-        {
-          title: "How to quis blandit lacus",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt augue sit amet nunc ultricies pellentesque. Mauris iaculis sapien eros, vel accumsan sem sollicitudin vitae. "
-        },
-        {
-          title: "How to sit amet luctus",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt augue sit amet nunc ultricies pellentesque. Mauris iaculis sapien eros, vel accumsan sem sollicitudin vitae. "
-        }
-      ]
+      dummyInfo: this.props.toolkits 
     };
   }
   renderToolkitList() {
