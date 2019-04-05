@@ -5,14 +5,7 @@ export class CategoryPage extends Component {
     super(props);
 
     this.state = {
-      categoryList: [
-        "Law",
-        "Protest",
-        "Workshop",
-        "Discussion",
-        "Survey",
-        "Hackathon"
-      ],
+      categoryList: this.props.categories,
       backgroundColor: ["#02b3e4", "#BF4C69", "#44A094", "#F4A54D", "#A36CDC"]
     };
   }
