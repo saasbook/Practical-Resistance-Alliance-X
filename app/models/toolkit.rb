@@ -1,3 +1,3 @@
-class Toolkit < ApplicationRecord
-    has_many :steps, :dependent => :destroy
+class Toolkit < ActiveRecord::Base
+    #attr_accessible :title, :author, :category, :steps, :overview
 end

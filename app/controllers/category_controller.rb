@@ -22,6 +22,5 @@ class CategoryController < ApplicationController
       @id = params[:id]
       @kind = params[:kind]
       @toolkit = Toolkit.where(id: @id).first
-      @steps = @toolkit.steps.order({:number => :asc})
   end
 end
