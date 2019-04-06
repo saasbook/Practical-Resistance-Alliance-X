@@ -13,7 +13,7 @@ The app integrates ReactJS and Rails using [react-rails](https://github.com/reac
 
 #### Note: Make sure you have [yarn](https://yarnpkg.com/en/) installed in your computer.
 
-```
+```bash
 $ bundle install --without production
 $ yarn
 $ rake db:setup # if you already have db, use rake db:reset
