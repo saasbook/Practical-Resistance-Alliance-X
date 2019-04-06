@@ -5,9 +5,9 @@ rvm:
 # make sure production-only gems are not installed
 bundler_args: --without production
 
-# install:
-#   - bundle install
-#   - yarn
+install:
+  # - bundle install
+  - yarn
 
 env:
   global:
