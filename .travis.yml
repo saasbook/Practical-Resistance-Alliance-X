@@ -2,11 +2,8 @@ language: ruby
 rvm:
   - 2.4.2
 
-# make sure production-only gems are not installed
-bundler_args: --without production
-
 install:
-  # - bundle install
+  - bundle install --without production
   - yarn
 
 env:
