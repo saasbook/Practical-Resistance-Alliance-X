@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import ToolkitCardView from "./ToolkitCardView";
+import NewToolkitButton from "./NewToolkitButton";
 
 export class ToolkitsListPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      dummyInfo: this.props.toolkits 
+      dummyInfo: this.props.toolkits
     };
   }
   renderToolkitList() {
@@ -27,7 +28,12 @@ export class ToolkitsListPage extends Component {
           <hr />
         </div>
         <div className="container">
-          <div className="row">{this.renderToolkitList()}</div>
+          <div className="row">
+            <div className="col-md-4 pt-3">
+              <NewToolkitButton />
+            </div>
+            {this.renderToolkitList()}
+          </div>
         </div>
       </div>
     );

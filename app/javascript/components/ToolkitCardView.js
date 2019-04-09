@@ -17,11 +17,13 @@ export default class ToolkitCardView extends Component {
   render() {
     let rand = Math.floor(Math.random() * this.state.images.length);
     let randimg = this.state.images[rand];
-    let link = "/category/" + this.props.info.category + '/' + this.props.info.id;
+    let link =
+      "/category/" + this.props.info.category + "/" + this.props.info.id;
     return (
       <div
         className="card"
         style={{
+          height: "420px",
           boxShadow: "1px 1px 8px rgb(211,211,211)",
           borderRadius: "15px",
           overflow: "hidden"
