@@ -13,6 +13,10 @@ class CategoryController < ApplicationController
     @toolkits = Toolkit.where(category: @kind)
   end
 
+  def new
+
+  end
+  
   def toolkit
     @toolkits = Toolkit.last
     @kind = params[:kind]
