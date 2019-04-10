@@ -11,9 +11,9 @@ export class ToolkitsListPage extends Component {
     };
   }
   renderToolkitList() {
-    return this.state.dummyInfo.map(info => {
+    return this.state.dummyInfo.map((info, index) => {
       return (
-        <div className="col-md-4 pt-3">
+        <div className="col-md-4 pt-3" key={index}>
           <ToolkitCardView info={info} />
         </div>
       );

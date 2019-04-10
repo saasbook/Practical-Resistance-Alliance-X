@@ -18,8 +18,15 @@
 @toolkit2 = Toolkit.create({:title => "Demonstration", :author => 'You', :category => 'Social', :overview => 'Lorem Ipsum'})
 @toolkit3 = Toolkit.create({:title => "Chinese Workshop", :author => 'He', :category => 'Law', :overview => 'Lorem Ipsum'})
 
-@step1 = Step.create({:content => "go to hell", :number => 1})
-@step2 = Step.create({:content => "go to hell too", :number => 2})
+@step1 = Step.create({:content => "Consider your topic. The first element of planning a workshop is to know what you're talking about.", :number => 1})
+@step2 = Step.create({:content => "Consider your audience.", :number => 2})
+@step3 = Step.create({:content => "Consider the time available.", :number => 3})
+@step4 = Step.create({:content => "Participants need time to talk and connect with one another.", :number => 4})
+
+
 
 @toolkit1.steps << @step2
+
 @toolkit1.steps << @step1
+@toolkit1.steps << @step3
+@toolkit1.steps << @step4
