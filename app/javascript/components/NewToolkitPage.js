@@ -10,8 +10,7 @@ export default class NewToolkitPage extends Component {
       categories: this.props.categories,
       title: "",
       overview: "",
-      category: "",
-      steps: null
+      category: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -28,8 +27,14 @@ export default class NewToolkitPage extends Component {
   }
   handleOnSubmit(e) {
     e.preventDefault();
-    console.log(this.stepsRef.current.state.steps);
-    console.log(this.state);
+    const { steps } = this.stepsRef.current.state;
+    const toolkit_data = {
+      title: this.state.title,
+      overview: this.state.overview,
+      category: this.state.category,
+      steps
+    };
+    console.log(toolkit_data);
   }
 
   render() {
