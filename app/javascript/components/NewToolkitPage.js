@@ -76,13 +76,15 @@ export default class NewToolkitPage extends Component {
             <label htmlFor="steps">Steps:</label>
             <NewStepComponent ref={this.stepsRef} />
           </div>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            onClick={this.handleOnSubmit.bind(this)}
-          >
-            Submit
-          </button>
+          <div className="mx-auto my-3" style={{ width: "100px" }}>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={this.handleOnSubmit.bind(this)}
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     );
