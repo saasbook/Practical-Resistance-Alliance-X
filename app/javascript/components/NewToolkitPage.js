@@ -17,7 +17,7 @@ export default class NewToolkitPage extends Component {
 
   renderCategories() {
     return this.state.categories.map(category => {
-      return <option>{category}</option>;
+      return <option key={category}>{category}</option>;
     });
   }
 
@@ -42,18 +42,18 @@ export default class NewToolkitPage extends Component {
       <div className="container" id="uploadToolkit">
         <h2>Create a New Toolkit</h2>
         <form role="main">
-          <label for="title">Title:</label>
+          <label htmlFor="title">Title:</label>
           <input
-            class="form-control"
+            className="form-control"
             type="text"
             name="title"
             value={this.state.title}
             onChange={this.handleChange}
             placeholder="Enter the title here"
           />
-          <label for="overview">Overview:</label>
+          <label htmlFor="overview">Overview:</label>
           <input
-            class="form-control"
+            className="form-control"
             type="text"
             name="overview"
             value={this.state.overview}
@@ -61,7 +61,7 @@ export default class NewToolkitPage extends Component {
             placeholder="Enter the overview here"
           />
           <div className="form-group">
-            <label for="categoryTag">Category:</label>
+            <label htmlFor="categoryTag">Category:</label>
             <select
               className="form-control"
               name="category"
@@ -73,12 +73,12 @@ export default class NewToolkitPage extends Component {
             </select>
           </div>
           <div className="form-group">
-            <label for="steps">Steps:</label>
+            <label htmlFor="steps">Steps:</label>
             <NewStepComponent ref={this.stepsRef} />
           </div>
           <button
             type="submit"
-            class="btn btn-primary"
+            className="btn btn-primary"
             onClick={this.handleOnSubmit.bind(this)}
           >
             Submit

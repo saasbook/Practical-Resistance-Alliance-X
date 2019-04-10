@@ -30,8 +30,8 @@ export default class NewStepComponent extends Component {
       let step = num + 1;
       return (
         <div className="input-group my-2" key={num + 1}>
-          <div class="input-group-prepend">
-            <span class="input-group-text">
+          <div className="input-group-prepend">
+            <span className="input-group-text">
               Step &nbsp; <span>{step}</span>
             </span>
           </div>
