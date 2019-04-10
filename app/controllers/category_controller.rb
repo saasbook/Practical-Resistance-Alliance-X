@@ -14,9 +14,14 @@ class CategoryController < ApplicationController
   end
 
   def new
-
+    query = Toolkit.select(:category).map(&:category).uniq
+    @categories = []
+    query.each do |q|
+        @categories.push(q)
+    end
+    puts @categories
   end
-  
+
   def toolkit
     @toolkits = Toolkit.last
     @kind = params[:kind]
