@@ -71,7 +71,7 @@ export default class NewToolkitPage extends Component {
             placeholder="Enter the title here"
           />
           <label htmlFor="overview">Overview:</label>
-          <input
+          <textarea
             className="form-control"
             type="text"
             name="overview"
