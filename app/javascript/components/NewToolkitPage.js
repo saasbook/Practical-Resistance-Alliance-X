@@ -27,6 +27,7 @@ export default class NewToolkitPage extends Component {
   }
   handleOnSubmit(e) {
     e.preventDefault();
+    // pack data
     const { steps } = this.stepsRef.current.state;
     const toolkit_data = {
       title: this.state.title,
@@ -34,7 +35,25 @@ export default class NewToolkitPage extends Component {
       category: this.state.category,
       steps
     };
-    console.log(toolkit_data);
+
+    // get csrfToken
+    const csrfToken = document.querySelector('[name="csrf-token"]').content;
+    // Make request
+    fetch("/toolkit", {
+      method: "POST",
+      body: JSON.stringify(toolkit_data),
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrfToken
+      })
+    })
+      .then(res => {
+        if (res.redirected) {
+          window.location.replace(res.url);
+        }
+      })
+      .catch(error => console.error("Error:", error))
+      .then(response => console.log("Success:", response));
   }
 
   render() {
