@@ -8,8 +8,12 @@ export default class NewToolkitPage extends Component {
     this.stepsRef = React.createRef();
     this.state = {
       categories: this.props.categories,
+      title: "",
+      overview: "",
+      category: "",
       steps: null
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   renderCategories() {
@@ -17,9 +21,15 @@ export default class NewToolkitPage extends Component {
       return <option>{category}</option>;
     });
   }
+
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
   handleOnSubmit(e) {
     e.preventDefault();
     console.log(this.stepsRef.current.state.steps);
+    console.log(this.state);
   }
 
   render() {
@@ -31,17 +41,29 @@ export default class NewToolkitPage extends Component {
           <input
             class="form-control"
             type="text"
+            name="title"
+            value={this.state.title}
+            onChange={this.handleChange}
             placeholder="Enter the title here"
           />
           <label for="overview">Overview:</label>
           <input
             class="form-control"
             type="text"
+            name="overview"
+            value={this.state.overview}
+            onChange={this.handleChange}
             placeholder="Enter the overview here"
           />
           <div className="form-group">
             <label for="categoryTag">Category:</label>
-            <select className="form-control" id="category">
+            <select
+              className="form-control"
+              name="category"
+              onChange={this.handleChange}
+              value={this.state.category}
+            >
+              <option value="">-- Please Choose a Category --</option>
               {this.renderCategories()}
             </select>
           </div>
