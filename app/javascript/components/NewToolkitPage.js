@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import NewStepComponent from "./NewStepComponent";
 
 export default class NewToolkitPage extends Component {
   constructor(props) {
     super(props);
 
+    this.stepsRef = React.createRef();
     this.state = {
-      categories: this.props.categories
+      categories: this.props.categories,
+      steps: null
     };
   }
 
@@ -14,6 +17,11 @@ export default class NewToolkitPage extends Component {
       return <option>{category}</option>;
     });
   }
+  handleOnSubmit(e) {
+    e.preventDefault();
+    console.log(this.stepsRef.current.state.steps);
+  }
+
   render() {
     return (
       <div className="container" id="uploadToolkit">
@@ -39,13 +47,13 @@ export default class NewToolkitPage extends Component {
           </div>
           <div className="form-group">
             <label for="steps">Steps:</label>
-            <textarea
-              className="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-            />
+            <NewStepComponent ref={this.stepsRef} />
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            onClick={this.handleOnSubmit.bind(this)}
+          >
             Submit
           </button>
         </form>
