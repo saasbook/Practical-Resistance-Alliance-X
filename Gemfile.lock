@@ -141,8 +141,6 @@ GEM
     factory_girl_rails (4.9.0)
       factory_girl (~> 4.9.0)
       railties (>= 3.0.0)
-    faraday (0.15.4)
-      multipart-post (>= 1.2, < 3)
     fattr (2.4.0)
     ffi (1.10.0)
     figaro (1.1.1)
@@ -176,7 +174,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    hashie (3.6.0)
     hirb (0.7.3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -246,7 +243,6 @@ GEM
     msgpack (1.2.9)
     multi_json (1.13.1)
     multi_test (0.1.2)
-    multipart-post (2.0.0)
     nenv (0.3.0)
     netrc (0.11.0)
     nio4r (2.3.1)
@@ -269,6 +265,8 @@ GEM
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
+    rack-livereload (0.3.17)
+      rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -450,6 +448,7 @@ DEPENDENCIES
   factory_girl_rails
   figaro
   font-awesome-rails
+  guard
   guard-rspec
   jasmine-rails
   jbuilder (~> 2.5)
@@ -458,6 +457,7 @@ DEPENDENCIES
   metric_fu
   pg
   puma (~> 3.11)
+  rack-livereload
   rails (~> 5.2.2, >= 5.2.2.1)
   rails_12factor
   react-rails
