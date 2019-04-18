@@ -9,6 +9,7 @@ Feature: User navigate between pages
 
       | title            | author | category | overview    |
       | Law Workshop     | me     | Law      | Lorem Ipsum |
+      | Law Workshop 2   | me     | Law      | Lorem Ipsum |
       | Chinese Workshop | me     | Social   | Lorem Ipsum |
 
     And I am on the home page
