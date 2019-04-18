@@ -12,10 +12,6 @@ $LOAD_PATH.unshift(File.dirname(vendored_cucumber_bin) + '/../lib') unless vendo
 
 begin
   require 'cucumber/rake/task'
-<<<<<<< HEAD
-  require 'elasticsearch/rails/tasks/import'
-=======
->>>>>>> 76c6df8b005a2535e238c045ec176b83bcdb4a6b
 
   namespace :cucumber do
     Cucumber::Rake::Task.new({ok: 'test:prepare'}, 'Run features that should pass') do |t|

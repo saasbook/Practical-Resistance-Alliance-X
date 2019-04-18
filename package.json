@@ -5,10 +5,7 @@
     "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-<<<<<<< HEAD
-=======
     "disqus-react": "^1.0.5",
->>>>>>> 76c6df8b005a2535e238c045ec176b83bcdb4a6b
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
