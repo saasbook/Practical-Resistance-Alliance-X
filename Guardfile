@@ -68,6 +68,7 @@ guard :rspec, cmd: "bundle exec rspec" do
     Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
   end
 end
+<<<<<<< HEAD
 
 guard 'livereload' do
   extensions = {
@@ -107,3 +108,5 @@ guard 'livereload' do
   watch(%r{app/helpers/.+\.rb})
   watch(%r{config/locales/.+\.yml})
 end
+=======
+>>>>>>> 76c6df8b005a2535e238c045ec176b83bcdb4a6b
