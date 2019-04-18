@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ToolkitCardView from "./ToolkitCardView";
 import NewToolkitButton from "./NewToolkitButton";
 
-export class ToolkitsListPage extends Component {
+export class SearchResults extends Component {
   constructor(props) {
     super(props);
 
@@ -22,16 +22,8 @@ export class ToolkitsListPage extends Component {
   render() {
     return (
       <div>
-        <div className="toolkits-list-header pt-5">
-          <i className="fa fa-diamond" aria-hidden="true" />
-          <h1>{this.props.kind}</h1>
-          <hr />
-        </div>
         <div className="container">
           <div className="row">
-            <div className="col-md-4 pt-3">
-              <NewToolkitButton />
-            </div>
             {this.renderToolkitList()}
           </div>
         </div>
@@ -40,4 +32,4 @@ export class ToolkitsListPage extends Component {
   }
 }
 
-export default ToolkitsListPage;
+export default SearchResults;

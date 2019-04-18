@@ -13,4 +13,10 @@ Rails.application.routes.draw do
   # post requests
   post 'toolkit', to: 'toolkit#create'
 
+  resources :toolkit do
+    collection do
+      post :search
+    end
+  end
+
 end

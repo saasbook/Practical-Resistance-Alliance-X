@@ -36,7 +36,7 @@ class Navbar extends React.Component {
                 </a>
               </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
+            <form className="form-inline my-2 my-lg-0" method="GET" action="/toolkit/search">
               <input
                 className="form-control mr-sm-2"
                 type="search"

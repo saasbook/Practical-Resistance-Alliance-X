@@ -7,14 +7,51 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-    <%= react_component("Navbar", {path: request.env['PATH_INFO']}, {prerender: true}) %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            PRAX-is
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon" />
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">
+                  Home
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/category/index">
+                  Toolkits
+                </a>
+              </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+              <%= form_for :search, url: search_toolkit_index_path, method: :post do |form| %>
+                <%= form.text_field :query, class: "form-control mr-sm-2", value: params[:search].presence && params[:search][:query] %>
+                <%= form.submit 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
     <%= yield %>
   </body>
 </html>
