@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PracticalResistanceAllianceX</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light px-5">
+        <div className="container">
+          <a className="navbar-brand" href="/">
+            PRAX-is
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="/">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item active">
+                <a className="nav-link" href="/category/index">
+                  Toolkits
+                </a>
+              </li>
+            </ul>
+            <%= form_for :search, url: search_toolkit_index_path, method: :post, class: "form-inline my-2 my-lg-0" do |form| %>
+              <%= form.text_field :query, class: "form-control mr-sm-2", value: params[:search].presence && params[:search][:query] %>
+              <%= form.submit 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    <%= yield %>
+  </body>
+</html>

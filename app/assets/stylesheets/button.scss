@@ -1,0 +1,26 @@
+.new-button {
+  border-radius: 15px;
+  border: 5px #dfdfdf dashed;
+  height: 420px;
+
+  .button-content {
+    margin: auto;
+    text-align: center;
+    color: #a8a8a8;
+    font-size: 2rem;
+    margin-top: 150px;
+    transition: all 0.3s linear;
+
+    i {
+      font-size: 5rem;
+    }
+
+    &:hover {
+      color: #858585;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
