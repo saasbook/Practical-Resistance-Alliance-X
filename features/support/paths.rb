@@ -18,6 +18,17 @@ module NavigationHelpers
     
     when /^the category\s?page$/
       '/category/index'
+    
+    when /^the new toolkit\s?page$/
+      '/newtoolkit'
+
+    when /^the Law\s?page$/
+      '/category/Law'
+
+    when /^the Law Workshop\s?page$/
+      '/category/Law/1'
+    
+    
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
