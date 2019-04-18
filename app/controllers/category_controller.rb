@@ -22,11 +22,6 @@ class CategoryController < ApplicationController
     puts @categories
   end
 
-  def toolkit
-    @toolkits = Toolkit.last
-    @kind = params[:kind]
-  end
-
   def display
       @id = params[:id]
       @kind = params[:kind]
