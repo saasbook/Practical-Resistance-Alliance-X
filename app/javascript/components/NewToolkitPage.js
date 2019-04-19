@@ -56,41 +56,60 @@ export default class NewToolkitPage extends Component {
       .then(response => console.log("Success:", response));
   }
 
+  renderFormTitle() {
+    return (
+      <div>
+        <label htmlFor="title">Title:</label>
+        <input
+          className="form-control"
+          name="title"
+          value={this.state.title}
+          onChange={this.handleChange}
+          placeholder="Enter the title here"
+        />
+      </div>
+    );
+  }
+
+  renderFormOverview() {
+    return (
+      <div>
+        <label htmlFor="overview">Overview:</label>
+        <textarea
+          className="form-control"
+          name="overview"
+          value={this.state.overview}
+          onChange={this.handleChange}
+          placeholder="Enter the overview here"
+        />
+      </div>
+    );
+  }
+
+  renderFormCategory() {
+    return (
+      <div className="form-group">
+        <label htmlFor="categoryTag">Category:</label>
+        <select
+          className="form-control"
+          name="category"
+          onChange={this.handleChange}
+          value={this.state.category}
+        >
+          <option value="">-- Please Choose a Category --</option>
+          {this.renderCategories()}
+        </select>
+      </div>
+    );
+  }
   render() {
     return (
       <div className="container" id="uploadToolkit">
         <h2>Create a New Toolkit</h2>
         <form role="main">
-          <label htmlFor="title">Title:</label>
-          <input
-            className="form-control"
-            type="text"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleChange}
-            placeholder="Enter the title here"
-          />
-          <label htmlFor="overview">Overview:</label>
-          <textarea
-            className="form-control"
-            type="text"
-            name="overview"
-            value={this.state.overview}
-            onChange={this.handleChange}
-            placeholder="Enter the overview here"
-          />
-          <div className="form-group">
-            <label htmlFor="categoryTag">Category:</label>
-            <select
-              className="form-control"
-              name="category"
-              onChange={this.handleChange}
-              value={this.state.category}
-            >
-              <option value="">-- Please Choose a Category --</option>
-              {this.renderCategories()}
-            </select>
-          </div>
+          {this.renderFormTitle()}
+          {this.renderFormOverview()}
+          {this.renderFormCategory()}
           <div className="form-group">
             <label htmlFor="steps">Steps:</label>
             <NewStepComponent ref={this.stepsRef} />

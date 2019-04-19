@@ -2,22 +2,23 @@ import React, { Component } from "react";
 import ToolkitCardView from "./ToolkitCardView";
 import NewToolkitButton from "./NewToolkitButton";
 
+export function renderToolkitList(state) {
+  return state.toolkits.map((info, index) => {
+    return (
+      <div className="col-md-4 pt-3" key={index}>
+        <ToolkitCardView info={info} />
+      </div>
+    );
+  });
+}
+
 export class ToolkitsListPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      dummyInfo: this.props.toolkits
+      toolkits: this.props.toolkits
     };
-  }
-  renderToolkitList() {
-    return this.state.dummyInfo.map((info, index) => {
-      return (
-        <div className="col-md-4 pt-3" key={index}>
-          <ToolkitCardView info={info} />
-        </div>
-      );
-    });
   }
   render() {
     return (
@@ -32,7 +33,7 @@ export class ToolkitsListPage extends Component {
             <div className="col-md-4 pt-3">
               <NewToolkitButton />
             </div>
-            {this.renderToolkitList()}
+            {renderToolkitList(this.state)}
           </div>
         </div>
       </div>
