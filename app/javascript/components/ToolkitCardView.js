@@ -14,6 +14,17 @@ export default class ToolkitCardView extends Component {
       ]
     };
   }
+  renderCardBody(link) {
+    return (
+      <div className="card-body">
+        <h5 className="card-title">{this.props.info.title}</h5>
+        <p className="card-text">{this.props.info.overview}</p>
+        <a href={link} className="btn btn-primary">
+          View More
+        </a>
+      </div>
+    );
+  }
   render() {
     let rand = Math.floor(Math.random() * this.state.images.length);
     let randimg = this.state.images[rand];
@@ -35,14 +46,7 @@ export default class ToolkitCardView extends Component {
           alt="Card image cap"
           style={{ height: "250px" }}
         />
-
-        <div className="card-body">
-          <h5 className="card-title">{this.props.info.title}</h5>
-          <p className="card-text">{this.props.info.overview}</p>
-          <a href={link} className="btn btn-primary">
-            View More
-          </a>
-        </div>
+        {this.renderCardBody(link)}
       </div>
     );
   }
