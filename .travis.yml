@@ -32,6 +32,7 @@ script:
   # - $CCTR format-coverage --output coverage/codeclimate.$SUITE.json
   # run Cucumber scenarios, and capture coverage. --strict means undefined steps result in a failure.
   - bundle exec cucumber --strict
+  - bundle exec rake spec
   - $CCTR format-coverage --output coverage/codeclimate.$SUITE.json
 
 after_script:
