@@ -49,6 +49,13 @@
                 <%= form.submit 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
               <% end %>
             </div>
+            <% if current_user %>
+                <%= current_user.firstName %>
+                <%=link_to "Logout", logout_path, class: "btn btn-outline-success my-2 my-sm-0 mx-3" %>
+            <% else %>
+                <%= link_to "Sign Up", signup_path, class: "btn btn btn-outline-primary my-2 my-sm-0 mx-3" %> or
+                <%= link_to "Log In", login_path, class: "btn btn btn-primary my-2 my-sm-0 mx-3" %>
+            <% end %>
           </div>
         </div>
       </nav>
