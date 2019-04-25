@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
   get 'category/index'
