@@ -30,7 +30,12 @@ module NavigationHelpers
 
     when /^the login\s?page$/
       '/login'
+
+    when /^the users\s?profile\s?page$/
+      '/users/1'
     
+    when /^the users\s?edit\s?page$/
+      '/users/1/edit'
     
 
     # Add more mappings here.

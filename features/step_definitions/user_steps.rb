@@ -7,3 +7,12 @@ Given /the user is created/ do
     :lastName => "Bear",
   })
 end
+
+Given /the user is loggedin/ do
+  step %{the user is createde}
+  step %{I go to the login page}
+  step %{I fill in "email" with "joe@gmail.com"}
+  step %{I fill in "password" with "123"}
+  step %{I press "Login"}
+end
+
