@@ -10,7 +10,7 @@ export class ToolkitViewer extends Component {
   renderSteps() {
     return this.props.steps.map(s => {
       return (
-        <div className="row my-3" key={s.number}>
+        <div className="row my-3 py-2" key={s.number}>
           <div className="col-md-2">
             <div className="step-num-card">{s.number}</div>
           </div>
@@ -45,7 +45,7 @@ export class ToolkitViewer extends Component {
               </span>
             </div>
           </div>
-          <div className="w-75 mx-auto overview ">
+          <div className="w-75 mx-auto font-weight-light overview">
             <p className="text-secondary">{this.props.toolkit.overview}</p>
           </div>
           <div className="container w-75">{this.renderSteps()}</div>
