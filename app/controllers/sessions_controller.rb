@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/category/index', notice: "s"
+      redirect_to '/category/index', notice: ""
     else
       flash[:alert] = "Email or password is invalid"
       redirect_to login_path
