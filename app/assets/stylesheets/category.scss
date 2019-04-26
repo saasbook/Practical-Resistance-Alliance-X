@@ -49,6 +49,11 @@
     background-color: #02b3e4;
   }
 }
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .overview {
   p {
