@@ -31,11 +31,10 @@
       <div class="form-inline my-2 my-lg-0">
         <%= form_for :search, url: search_toolkit_index_path, method: :post do |form| %>
           <%= form.text_field :query, class: "form-control mr-sm-2", value: params[:search].presence && params[:search][:query] %>
-          <%= form.submit 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+          <%= form.submit 'Search', class: "btn btn-outline-success my-2 my-sm-0 mx-3" %>
         <% end %>
       </div>
       <% if current_user %>
-          <%=link_to "Logout", logout_path, class: "btn btn-outline-success my-2 my-sm-0 mx-3" %>
           <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.firstName %>                    
