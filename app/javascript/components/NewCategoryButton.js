@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
-export default class NewToolkitButton extends Component {
+export default class NewCategoryButton extends Component {
   render() {
     return (
-      <div className="new-toolkit-button" id="add_toolkit_button">
-        <a href="/newtoolkit">
+      <div className="new-category-button" id="add_category_button">
+        <a href="/newcategory">
           <div className="button-content">
             <i className="fa fa-plus-circle" aria-hidden="true" />
             <br />
-            Add a new toolkit
+            Add a new category
           </div>
         </a>
       </div>
