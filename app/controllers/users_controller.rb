@@ -1,19 +1,18 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
-
+  before_action :admin_user, only: [:index, :destroy]
   # GET /users
   # GET /users.json
   def index
-    if @user.admin?
       @users = User.all
-    else
-      redirect_to @user
-    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    if @user.admin?
+      @user = User.find(params[:id])
+    end
   end
 
   # GET /users/new
@@ -59,17 +58,12 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    if @user.admin?
       userToBeRemoved = User.find(params[:id])
       userToBeRemoved.destroy
       respond_to do |format|
         format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
         format.json { head :no_content }
       end
-    else
-      redirect_to @user
-    end
-
   end
 
   private
@@ -85,5 +79,11 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :firstName, :lastName)
+    end
+
+    # Check if the user is admin
+    def admin_user
+      @user = current_user
+      redirect_to @user unless @user.admin?
     end
 end
