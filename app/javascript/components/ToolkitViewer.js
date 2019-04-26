@@ -45,10 +45,10 @@ export class ToolkitViewer extends Component {
               </span>
             </div>
           </div>
-          <div className="w-75 mx-auto font-weight-light overview">
+          <div className="mx-auto font-weight-light overview">
             <p className="text-secondary">{this.props.toolkit.overview}</p>
           </div>
-          <div className="container w-75">{this.renderSteps()}</div>
+          <div className="container">{this.renderSteps()}</div>
 
           <div className="m-5">
             <Disqus.DiscussionEmbed
