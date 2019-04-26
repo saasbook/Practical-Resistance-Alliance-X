@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'category/:kind', to: 'category#show'
   get 'category/:kind/:id', to: 'category#display'
-  get 'newtoolkit', to: 'category#new'
-
+  get 'newtoolkit', to: 'toolkit#new'
+  get 'newcategory', to: 'category#new'
   get 'signup', to: 'users#new', as: 'signup'
   get 'edit_request', to: 'users#edit_request', as: 'edit_request'
   post 'keep_new', to: 'users#keep_new', as: 'keep_new'

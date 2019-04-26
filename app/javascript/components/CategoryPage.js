@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NewCategoryButton from './NewCategoryButton'
 
 export class CategoryPage extends Component {
   constructor(props) {
@@ -38,7 +39,12 @@ export class CategoryPage extends Component {
           <h5 className=" font-weight-bolder">I want to use...</h5>
         </div>
         <div className="container py-5">
-          <div className="row">{this.renderCards()}</div>
+          <div className="row">
+            <div className="col-md-4">
+              <NewCategoryButton />
+            </div>
+            {this.renderCards()}
+          </div>
         </div>
       </div>
     );
