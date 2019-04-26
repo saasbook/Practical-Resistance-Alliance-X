@@ -16,27 +16,27 @@
       <h2 style="text-align:center;"><%= @info[:title] %></h2>
       <div class="field" id="form-group">
         <%= form.label :email %>
-        <%= form.text_field :email, class: "form-control" %>
+        <%= form.text_field :email, class: "form-control", :required => @info[:new_user] %>
       </div>
 
       <div class="field form-group">
         <%= form.label :password %>
-        <%= form.password_field :password, class: "form-control" %>
+        <%= form.password_field :password, class: "form-control", :required => @info[:new_user] %>
       </div>
 
       <div class="field form-group">
-        <%= form.label :Confirm_Password %>
-        <%= form.password_field :password_confirmation, class: "form-control" %>
+        <%= form.label :Confirm_Password%>
+        <%= form.password_field :password_confirmation, class: "form-control", :required => @info[:new_user] %>
       </div>
 
       <div class="field form-group">
         <%= form.label :firstName, 'First Name' %>
-        <%= form.text_field :firstName, class: "form-control" %>
+        <%= form.text_field :firstName, class: "form-control", :required => @info[:new_user] %>
       </div>
 
       <div class="field form-group">
         <%= form.label :lastName, 'Last Name' %>
-        <%= form.text_field :lastName, class: "form-control" %>
+        <%= form.text_field :lastName, class: "form-control", :required => @info[:new_user] %>
       </div>
 
       <div class="actions"> 
