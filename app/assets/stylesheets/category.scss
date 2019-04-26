@@ -49,3 +49,32 @@
     background-color: #02b3e4;
   }
 }
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.overview {
+  p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 20px 0;
+  }
+}
+
+.step-num-card {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  background: #02b3e4;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+  margin: auto;
+}
+
+.step-centent {
+  font-size: 1.2rem;
+}
