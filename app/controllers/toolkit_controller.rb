@@ -15,22 +15,22 @@ class ToolkitController < ApplicationController
     redirect_to "/category/"+@toolkit.category+"/"+@toolkit.id.to_s
   end
 
+  def new
+    query = Toolkit.select(:category).map(&:category).uniq
+    @categories = []
+    query.each do |q|
+        @categories.push(q)
+    end
+    puts @categories
+  end
+
   def search
-    query = params[:search].presence && params[:search][:query].presence
-    puts "q", params
-    if !query.nil?
-      # search_queries = params[:search][:query].split(' ')
+    query = params[:search].presence && params[:search][:query]
+    if query
       search = params[:search][:query]
       puts search
       @search_results = Toolkit.where("lower(title) LIKE lower(?)", "%#{search}%")
-      # @search_results = Toolkit.where("lower(title) IN (?)", "%#{search_queries}%")
-      # ["startups.locations IN (?)", @sea_countries]
-      # @search_results = Set[]
-      # search_queries.each do |search|
-      #   @search_results.add Toolkit.where("lower(title) LIKE lower(?)", "%#{search}%")
-      # end
-    else
-      @search_results = []
     end
   end
+
 end
