@@ -15,4 +15,7 @@
   <%= @user.lastName %>
 </p>
 
+<% if current_user.id == @user.id %>
+<% puts params[:id] %>
 <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
