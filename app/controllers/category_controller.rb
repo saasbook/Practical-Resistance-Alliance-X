@@ -1,4 +1,5 @@
 class CategoryController < ApplicationController
+  before_action :set_user, only: [:new]
   def index
     query = Toolkit.select(:category).map(&:category).uniq
     @categories = []
@@ -28,4 +29,14 @@ class CategoryController < ApplicationController
       @toolkit = Toolkit.where(id: @id).first
       @steps = @toolkit.steps.order({:number => :asc})
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = current_user
+      unless @user
+        flash[:danger] = "Please log in"
+        redirect_to login_path
+      end
+    end
 end
