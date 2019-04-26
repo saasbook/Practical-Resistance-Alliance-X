@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Disqus from 'disqus-react';
+import Disqus from "disqus-react";
+import moment from "moment";
 
 export class ToolkitViewer extends Component {
   constructor(props) {
@@ -9,9 +10,11 @@ export class ToolkitViewer extends Component {
   renderSteps() {
     return this.props.steps.map(s => {
       return (
-        <div className="row">
-          <div className="col-md-1">{s.number}</div>
-          <div className="col-md-20">{s.content}</div>
+        <div className="row my-3" key={s.number}>
+          <div className="col-md-2">
+            <div className="step-num-card">{s.number}</div>
+          </div>
+          <div className="col-md-9 step-centent">{s.content}</div>
         </div>
       );
     });
@@ -19,27 +22,42 @@ export class ToolkitViewer extends Component {
 
   render() {
     console.log(this.props.steps);
-    const disqusShortname = 'prax-1';
+    const disqusShortname = "prax-1";
     const disqusConfig = {
-        //url: window.location.href,
-        identifier: this.props.toolkit.id,
-        title: this.props.toolkit.title,
+      //url: window.location.href,
+      identifier: this.props.toolkit.id,
+      title: this.props.toolkit.title
     };
     return (
-        <div id="toolkit-view">
-            <div className="toolkits-list-header pt-5">
-                <h1>{this.props.toolkit.title}</h1>
-            </div>
-            <dl class="row">
-                <dt class="col-sm-1">Author</dt>
-                <dd class="col-sm-11">{this.props.toolkit.author}</dd>
-                <dt class="col-sm-1">Overview</dt>
-                <dd class="col-sm-11">{this.props.toolkit.overview}</dd>
-                <dt class="col-sm-1">Steps</dt>
-                <dd class="col-sm-11">{this.renderSteps()}</dd>
-            </dl>
-            <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+      <div id="toolkit-view">
+        <div className="toolkits-list-header pt-5">
+          <h1>{this.props.toolkit.title}</h1>
         </div>
+        <div className="container">
+          <div className="mx-auto w-50 text-center">
+            <div className="text-muted">
+              BY {this.props.toolkit.author}
+              <span className="mx-2">|</span>
+              <span>
+                {moment(this.props.toolkit.updated_at)
+                  .format("YYYY-MM-DD")
+                  .toString()}
+              </span>
+            </div>
+          </div>
+          <div className="w-75 mx-auto overview ">
+            <p className="text-secondary">{this.props.toolkit.overview}</p>
+          </div>
+          <div className="container w-75">{this.renderSteps()}</div>
+
+          <div className="m-5">
+            <Disqus.DiscussionEmbed
+              shortname={disqusShortname}
+              config={disqusConfig}
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 }
