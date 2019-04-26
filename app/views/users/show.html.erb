@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h3><%= @user.firstName + "'s Dashboard"%></h3>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -15,5 +15,4 @@
   <%= @user.lastName %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user) %>

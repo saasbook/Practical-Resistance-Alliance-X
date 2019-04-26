@@ -1,5 +1,9 @@
-<p id=”alert”><%= alert %></p>
 <div class="container"id="signupForm">
+<% if flash[:alert] %>
+   <div class="alert alert-danger" style="text-align:center;">
+     <span class="error"><%= flash[:alert] %></span>
+   </div>
+<% end %>
   <div id="innerSignup">
     <h1 style="text-align:center;">Log In</h1>
     <%= form_tag sessions_path do |form| %>
