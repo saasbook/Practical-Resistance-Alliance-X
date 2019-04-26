@@ -27,6 +27,9 @@ module NavigationHelpers
 
     when /^the Law Workshop\s?page$/
       '/category/Law/1'
+
+    when /^the login\s?page$/
+      '/login'
     
     
 

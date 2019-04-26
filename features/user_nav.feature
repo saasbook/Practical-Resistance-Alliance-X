@@ -29,7 +29,7 @@ Feature: User navigate between pages
     When I follow "View More"
     Then I should be on the Law Workshop page
 
-  Scenario: Go to create new toolkit page
+  Scenario: Cannot go to create new toolkit page without login
     Given I am on the Law page
     When I follow "Add a new toolkit"
-    Then I should be on the new toolkit page
+    Then I should be on the login page
