@@ -56,14 +56,6 @@ class ToolkitController < ApplicationController
       search = params[:search][:query]
       puts search
       @search_results = Toolkit.where("lower(title) LIKE lower(?)", "%#{search}%")
-      # @search_results = Toolkit.where("lower(title) IN (?)", "%#{search_queries}%")
-      # ["startups.locations IN (?)", @sea_countries]
-      # @search_results = Set[]
-      # search_queries.each do |search|
-      #   @search_results.add Toolkit.where("lower(title) LIKE lower(?)", "%#{search}%")
-      # end
-    else
-      @search_results = []
     end
   end
 
