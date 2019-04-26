@@ -12,7 +12,7 @@ export class ToolkitViewer extends Component {
       return (
         <div className="row my-3 py-2" key={s.number}>
           <div className="col-md-2">
-            <div className="step-num-card">{s.number}</div>
+            <div className="step-num-card my-2">{s.number}</div>
           </div>
           <div className="col-md-9 step-centent">{s.content}</div>
         </div>
