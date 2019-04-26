@@ -13,7 +13,7 @@
 
   <div class="container" id="signupForm">
     <div id="innerSignup">
-      <h2 style="text-align:center;">New User</h2>
+      <h2 style="text-align:center;"><%= @info[:title] %></h2>
       <div class="field" id="form-group">
         <%= form.label :email %>
         <%= form.text_field :email, class: "form-control" %>
@@ -40,7 +40,7 @@
       </div>
 
       <div class="actions"> 
-        <%= form.submit 'Create User', :class => 'btn btn-primary' %>
+        <%= form.submit @info[:button_name], :class => 'btn btn-primary' %>
       </div>
     </div>
   </div>

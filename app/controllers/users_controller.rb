@@ -15,10 +15,12 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @info = {:title => "New User", :button_name => "Sign Up"}
   end
 
   # GET /users/1/edit
   def edit
+    @info = {:title => "Update Profile", :button_name => "Save"}
   end
 
   # POST /users
