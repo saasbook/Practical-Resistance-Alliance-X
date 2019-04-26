@@ -84,6 +84,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard'
   gem 'rack-livereload'
+  gem 'faker'
 end
 
 group :production do

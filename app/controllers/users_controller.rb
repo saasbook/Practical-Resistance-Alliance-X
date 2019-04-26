@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if @user.admin?
+      @users = User.all
+    else
+      redirect_to @user
+    end
   end
 
   # GET /users/1
@@ -57,11 +61,17 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+    if @user.admin?
+      userToBeRemoved = User.find(params[:id])
+      userToBeRemoved.destroy
+      respond_to do |format|
+        format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to @user
     end
+
   end
 
   private
