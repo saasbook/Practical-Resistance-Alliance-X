@@ -37,6 +37,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
+        @info = {:title => "New User", :button_name => "Sign Up", :new_user => true}
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -51,6 +52,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
+        @info = {:title => "Update Profile", :button_name => "Save", :new_user => false}
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
