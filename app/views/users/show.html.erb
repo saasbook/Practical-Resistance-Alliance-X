@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<h3><%= @user.firstName + "'s Dashboard"%></h3>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @user.firstName %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @user.lastName %>
+</p>
+
+<% if current_user.id == @user.id %>
+<% puts params[:id] %>
+<%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
