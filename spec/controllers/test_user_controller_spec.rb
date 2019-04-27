@@ -62,4 +62,11 @@ describe UsersController do
       expect(response).to redirect_to(users_url)
     end
   end
+
+  describe "set_user" do
+    it "redirect to login" do
+      get :index
+      expect(response).to redirect_to("/login")
+    end
+  end
 end
