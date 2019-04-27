@@ -30,9 +30,22 @@ module NavigationHelpers
 
     when /^the login\s?page$/
       '/login'
-    
-    
 
+    when /^the sign up page$/
+      '/signup'
+
+    when /^the users page$/
+      '/users'
+
+    when /^the users\s?profile\s?page$/
+      '/users/1'
+    
+    when /^the users\s?edit\s?page$/
+      '/users/1/edit'
+    
+    when /^the new\s?tookit\s?page$/
+      '/newtoolkit'
+    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
