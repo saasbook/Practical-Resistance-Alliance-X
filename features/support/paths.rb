@@ -43,7 +43,9 @@ module NavigationHelpers
     when /^the users\s?edit\s?page$/
       '/users/1/edit'
     
-
+    when /^the new\s?tookit\s?page$/
+      '/newtoolkit'
+    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
