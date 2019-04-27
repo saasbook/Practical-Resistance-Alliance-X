@@ -55,6 +55,8 @@ describe UsersController do
       post :create, params: user1
       post :create, params: admin
 
+      @ad = User.where(:email => "admin@example.com")
+      @ad.update_all({:admin => true})
       delete :destroy, params: {:id=>1}
       expect(flash[:notice]).to include("User was successfully destroyed.")
       expect(response).to redirect_to(users_url)
