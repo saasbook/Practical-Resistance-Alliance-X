@@ -12,12 +12,20 @@ describe ToolkitController do
             step1["content"] = "content1"
             step1["number"] = 1
             toolkit1["steps"] = [step1]
-            post :create, params: toolkit1, as: :json            
+            post :create, params: toolkit1, as: :json
+            expect(response).to redirect_to("/category/Law/1")            
         end
     end
     describe ".search" do
         it "finds a searched toolkit by category" do
-            post :search, :params => {"query"=>"demo"}
+            Toolkit.create!({
+                :title => "test title", 
+                :author => "Unknown", 
+                :category => "Law",
+                :overview => "lacdjnasuil"
+            })
+            post :search, :params => {:search => {"query"=>"Law"}}
+            expect(response).to render_template(:search)
         end
     end
     
