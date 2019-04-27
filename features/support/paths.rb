@@ -31,6 +31,9 @@ module NavigationHelpers
     when /^the login\s?page$/
       '/login'
 
+    when /^the users page$/
+      '/users'
+
     when /^the users\s?profile\s?page$/
       '/users/1'
     
