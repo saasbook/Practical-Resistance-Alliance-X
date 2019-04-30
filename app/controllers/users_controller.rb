@@ -15,6 +15,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_request
+    @result = []
+    Stoolkit.all.each do |toolkit|
+      @result.push([toolkit, Toolkit.where(title: toolkit.title)])
+    end
+  end
+
+  def keep_old
+    Stoolkit.where(title: params[:keep]).destroy_all
+    redirect_to edit_request_path
+  end
+
+  def keep_new
+    stoolkit = Stoolkit.where(title: params[:remove]).first
+    toolkit = Toolkit.where(title: params[:remove]).first
+    toolkit.steps.destroy_all
+    stoolkit.ssteps.all.each do |steps|
+      hash = steps.attributes
+      hash['toolkit_id'] = hash.delete("stoolkit_id")
+      toolkit.steps.create(hash)
+    end
+    Stoolkit.where(title: params[:remove]).destroy_all
+    redirect_to edit_request_path
+  end
+
   # GET /users/new
   def new
     @user = User.new()

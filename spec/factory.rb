@@ -7,21 +7,21 @@ FactoryBot.define do
       firstName {"Oski"}
       lastName {"Bear"}
     end
-    
+
     factory :stoolkit do
       title {"Test Toolkit"}
       author {"123"}
       category {"123"}
       created_at {"Oski"}
       updated_at {"Bear"}
+      sstep
     end
 
     factory :sstep do
-      stoolkit
-      content {"Test Steps"}
+    	content {"Test Steps"}
     end
 
-    factory :toolkit do
+     factory :toolkit do
       title {"Test Toolkit"}
       author {"123"}
       category {"123"}

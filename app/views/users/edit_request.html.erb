@@ -1,0 +1,21 @@
+<table>
+  <% @result.each do |toolkit| %>
+    <tr>
+      <td><h1><%= toolkit[0].title %></h1></td>
+	<td><h1><%= toolkit[1][0].title %></h1></td>
+    </tr>
+    <% if toolkit[1][0].steps.count > toolkit[0].ssteps.count %>
+      <%= toolkit[1][0].steps.zip(toolkit[0].ssteps) do |a1, a2| %>
+        <tr><td><%= a1 ? a1.content : ''  %></td><td><%= a2 ? a2.content : '' %></td></tr>
+      <% end %>
+    <% else %>
+      <%= toolkit[0].ssteps.zip(toolkit[1][0].steps) do |a2, a1| %>
+        <tr><td><%= a1 ? a1.content : ''  %></td><td><%= a2 ? a2.content : '' %></td></tr>
+      <% end %>
+    <% end %>
+	<tr>
+		<td><%= button_to "Keep Old Version", keep_old_path(:keep => toolkit[0].title)%></td>
+		<td><%= button_to "Accept Changes", keep_new_path(:remove => toolkit[0].title)%></td>
+	</tr>
+  <% end %>
+</table>

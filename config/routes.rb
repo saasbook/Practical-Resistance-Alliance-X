@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'newtoolkit', to: 'category#new'
 
   get 'signup', to: 'users#new', as: 'signup'
+  get 'edit_request', to: 'users#edit_request', as: 'edit_request'
+  post 'keep_new', to: 'users#keep_new', as: 'keep_new'
+  post 'keep_old', to: 'users#keep_old', as: 'keep_old'
+
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
