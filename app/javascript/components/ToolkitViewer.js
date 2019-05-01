@@ -25,7 +25,9 @@ export class ToolkitViewer extends Component {
         <div className={`edit-btn-container`}>
           <div className={`edit-btn-card`}>
             <div className={`question`}>Would you like to contribute to the toolkit? </div>
-            <div className={`edit-btn`}>EDIT</div>
+            <div className={`edit-btn`}>
+              <a href={`/toolkit/${this.props.toolkit.id}/edit`}>EDIT</a>
+            </div>
           </div>
         </div>
     );
