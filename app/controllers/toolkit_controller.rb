@@ -1,5 +1,6 @@
 class ToolkitController < ApplicationController
   require 'set'
+  before_action :set_user, only: [:edit]
 
   def create
     @toolkit_data = JSON.parse(request.body.read)
@@ -21,6 +22,7 @@ class ToolkitController < ApplicationController
   end
 
   def update
+
   end
 
   def search
@@ -39,6 +41,16 @@ class ToolkitController < ApplicationController
       # end
     else
       @search_results = []
+    end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = current_user
+    unless @user
+      flash[:danger] = "Please log in"
+      redirect_to login_path
     end
   end
 end
