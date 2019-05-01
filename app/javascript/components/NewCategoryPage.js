@@ -7,10 +7,7 @@ export default class NewCategoryPage extends Component {
 
     this.stepsRef = React.createRef();
     this.state = {
-      categories: this.props.categories,
-      title: "",
-      overview: "",
-      category: ""
+      name: "",
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -19,20 +16,19 @@ export default class NewCategoryPage extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   }
+
   handleOnSubmit(e) {
     e.preventDefault();
-    const { steps } = this.stepsRef.current.state;
-    const toolkit_data = {
-      title: this.state.title,
-      steps
+    const category_data = {
+      name: this.state.name,
     };
 
     // get csrfToken
     const csrfToken = document.querySelector('[name="csrf-token"]').content;
     // Make request
-    fetch("/toolkit", {
+    fetch("/category", {
       method: "POST",
-      body: JSON.stringify(toolkit_data),
+      body: JSON.stringify(category_data),
       headers: new Headers({
         "Content-Type": "application/json",
         "X-CSRF-Token": csrfToken
@@ -47,13 +43,13 @@ export default class NewCategoryPage extends Component {
       .then(response => console.log("Success:", response));
   }
 
-  renderFormTitle() {
+  renderFormName() {
     return (
       <div>
         <input
           className="form-control"
-          name="title"
-          value={this.state.title}
+          name="name"
+          value={this.state.name}
           onChange={this.handleChange}
           placeholder="Enter the category name here"
         />
@@ -66,7 +62,7 @@ export default class NewCategoryPage extends Component {
       <div className="container" id="uploadCategory">
         <h2>Create a New Category</h2>
         <form role="main">
-          {this.renderFormTitle()}
+          {this.renderFormName()}
           <div className="mx-auto my-3" style={{ width: "100px" }}>
             <button
               type="submit"

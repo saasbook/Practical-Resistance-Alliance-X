@@ -21,10 +21,10 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'welcome#index'
 
   # post requests
   post 'toolkit', to: 'toolkit#create'
+  post 'category', to: 'category#create'
 
   get 'toolkit/:id/edit', to: 'toolkit#edit', as: 'edit_toolkit'
 

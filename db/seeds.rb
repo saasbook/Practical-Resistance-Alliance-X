@@ -18,6 +18,9 @@
 
 case Rails.env
 when "development"
+  @category1 = Category.create({:name => "Law"})
+  @category2 = Category.create({:name => "Social"})
+
   @toolkit1 = Toolkit.create({:title => "How to Prepare a Law Workshop", :author => 'wikiHow', :category => 'Law', :overview => 'A workshop is an informative or instructional class focused on teaching specialized skills or exploring a particular subject. Workshop presenters are usually educators, subject matter experts, managers or other leaders who possess knowledge of a particular subject or mastery of specific skills. Depending on the topic, workshops may be only one or two hours in length or extend across weeks of time. Workshop leaders can strengthen the effectiveness of their presentations through careful planning, organization and presentation practice. Here are the steps for preparing a workshop.'})
   @toolkit2 = Toolkit.create({:title => "How to Prepare a Law Workshop 2", :author => 'wikiHow', :category => 'Social', :overview => 'A workshop is an informative or instructional class focused on teaching specialized skills or exploring a particular subject. Workshop presenters are usually educators, subject matter experts, managers or other leaders who possess knowledge of a particular subject or mastery of specific skills. Depending on the topic, workshops may be only one or two hours in length or extend across weeks of time. Workshop leaders can strengthen the effectiveness of their presentations through careful planning, organization and presentation practice. Here are the steps for preparing a workshop.'})
   

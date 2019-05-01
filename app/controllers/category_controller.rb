@@ -1,7 +1,7 @@
 class CategoryController < ApplicationController
   before_action :set_user, only: [:new]
   def index
-    query = Toolkit.select(:category).map(&:category).uniq
+    query = Category.select(:name).map(&:name).uniq
     @categories = []
     query.each do |q|
         @categories.push(q)
@@ -9,17 +9,20 @@ class CategoryController < ApplicationController
     puts @categories
   end
 
-  def show
-    @kind = params[:kind]
-    @toolkits = Toolkit.where(category: @kind)
+  def create
+    @category_data = JSON.parse(request.body.read)
+    @category = Category.create!({
+      :name => @category_data["name"]
+    })
+    redirect_to "/category/index"
   end
 
   def new
-    query = Toolkit.select(:category).map(&:category).uniq
-    @categories = []
-    query.each do |q|
-        @categories.push(q)
-    end
+  end
+
+  def show
+    @kind = params[:kind]
+    @toolkits = Toolkit.where(category: @kind)
   end
 
   def display

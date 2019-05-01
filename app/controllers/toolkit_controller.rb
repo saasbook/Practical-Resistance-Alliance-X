@@ -42,7 +42,7 @@ class ToolkitController < ApplicationController
   end
 
   def new
-    query = Toolkit.select(:category).map(&:category).uniq
+    query = Category.select(:name).map(&:name).uniq
     @categories = []
     query.each do |q|
         @categories.push(q)
