@@ -4,9 +4,11 @@ export default class NewStepComponent extends Component {
   constructor(props) {
     super(props);
 
+    const {edit} = this.props;
+    console.log(this.props);
     this.state = {
-      numSteps: 1,
-      steps: {}
+      numSteps: edit ? this.props.steps.length : 1,
+      steps: edit ? this.props.steps.map(s => s.content) :{}
     };
 
     this.renderSteps = this.renderSteps.bind(this);
@@ -15,7 +17,7 @@ export default class NewStepComponent extends Component {
     const id = e.target.id;
     const value = e.target.value;
     const { steps } = this.state;
-    steps[id] = value;
+    steps[id-1] = value;
     this.setState({ steps });
   }
   handleOnAddStepClick(e) {
@@ -40,13 +42,14 @@ export default class NewStepComponent extends Component {
             aria-label="With textarea"
             onChange={this.handleOnInputChange.bind(this)}
             id={step}
-            value={this.state.steps[step]}
+            value={this.state.steps[step-1]}
           />
         </div>
       );
     });
   }
   render() {
+    console.log("state", this.state)
     return (
       <div>
         {this.renderSteps()}

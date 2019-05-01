@@ -16,6 +16,8 @@ class ToolkitController < ApplicationController
   end
 
   def edit
+    @toolkit = Toolkit.where(id: params[:id]).first
+    @steps = @toolkit.steps.order({:number => :asc})
   end
 
   def update

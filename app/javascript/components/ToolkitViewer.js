@@ -34,7 +34,6 @@ export class ToolkitViewer extends Component {
   }
 
   render() {
-    console.log(this.props.steps);
     const disqusShortname = "prax-1";
     const disqusConfig = {
       //url: window.location.href,
