@@ -15,6 +15,12 @@ class ToolkitController < ApplicationController
     redirect_to "/category/"+@toolkit.category+"/"+@toolkit.id.to_s
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def search
     query = params[:search].presence && params[:search][:query].presence
     puts "q", params
