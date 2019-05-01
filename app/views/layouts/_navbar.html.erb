@@ -42,6 +42,7 @@
             <div class="dropdown-menu">
               <% if current_user.admin? %>
                 <%= link_to "Users", users_path, class:"dropdown-item" %>
+		<%= link_to "Edit Requests", edit_request_path, class:"dropdown-item" %>
               <% end %>
               <%= link_to "Profile", current_user, class:"dropdown-item" %>
               <div class="dropdown-divider"></div>

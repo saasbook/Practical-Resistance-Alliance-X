@@ -19,7 +19,7 @@
 case Rails.env
 when "development"
   @toolkit1 = Toolkit.create({:title => "How to Prepare a Law Workshop", :author => 'wikiHow', :category => 'Law', :overview => 'A workshop is an informative or instructional class focused on teaching specialized skills or exploring a particular subject. Workshop presenters are usually educators, subject matter experts, managers or other leaders who possess knowledge of a particular subject or mastery of specific skills. Depending on the topic, workshops may be only one or two hours in length or extend across weeks of time. Workshop leaders can strengthen the effectiveness of their presentations through careful planning, organization and presentation practice. Here are the steps for preparing a workshop.'})
-  @toolkit2 = Toolkit.create({:title => "How to Prepare a Law Workshop", :author => 'wikiHow', :category => 'Social', :overview => 'A workshop is an informative or instructional class focused on teaching specialized skills or exploring a particular subject. Workshop presenters are usually educators, subject matter experts, managers or other leaders who possess knowledge of a particular subject or mastery of specific skills. Depending on the topic, workshops may be only one or two hours in length or extend across weeks of time. Workshop leaders can strengthen the effectiveness of their presentations through careful planning, organization and presentation practice. Here are the steps for preparing a workshop.'})
+  @toolkit2 = Toolkit.create({:title => "How to Prepare a Law Workshop 2", :author => 'wikiHow', :category => 'Social', :overview => 'A workshop is an informative or instructional class focused on teaching specialized skills or exploring a particular subject. Workshop presenters are usually educators, subject matter experts, managers or other leaders who possess knowledge of a particular subject or mastery of specific skills. Depending on the topic, workshops may be only one or two hours in length or extend across weeks of time. Workshop leaders can strengthen the effectiveness of their presentations through careful planning, organization and presentation practice. Here are the steps for preparing a workshop.'})
   
   @toolkit3 = Toolkit.create({:title => "Chinese Workshop", :author => 'He', :category => 'Law', :overview => 'Lorem Ipsum'})
 
@@ -31,7 +31,6 @@ when "development"
   @step1_2 = Step.create({:content => "Define the objective of the workshop. Your objective may be to teach a concrete skill, such as how to create and save documents in a word processing application. Or your aim may be to deliver general information or guidance about a specific topic, such as painting or creative writing. Regardless of the focus, it's important to define the objective first", :number => 1})
   @step2_2 = Step.create({:content => "Determine the needs of workshop participants. When teaching a particular skill, for example, understanding the participants' needs in regard to skill level and learning pace will assist you in delivering appropriate content. The more you tailor the workshop to your audience, the more effective the workshop will be.", :number => 2})
   @step3_2 = Step.create({:content => "Decide on the order of the topics. Move the most important skills or information to the early part of the workshop. Depending on the subject of the workshop, it may also be useful to introduce and build on each topic, beginning with the simplest or most straight forward topic and concluding with the more difficult or complex topic.", :number => 3})
-  @step4_2 = Step.create({:content => "Assign an estimated length of time to each item on the outline. For particularly complicated topics or skills, allot a sufficient amount of time in case participants get stuck or have questions. It is also important to factor in scheduled breaks during the workshop to give the participants a chance to go to the bathroom or stretch their legs.", :number => 4})
 
 
 
@@ -45,7 +44,35 @@ when "development"
 
   @toolkit2.steps << @step1_2
   @toolkit2.steps << @step3_2
-  @toolkit2.steps << @step4_2
+
+
+
+  #Staging Data
+
+  @stage_toolkit1 = Stoolkit.create({:title => "How to Prepare a Law Workshop", :author => 'wikiHow', :category => 'Law', :overview => 'A workshop is an informative or instructional class focused on teaching specialized skills or exploring a particular subject. Workshop presenters are usually educators, subject matter experts, managers or other leaders who possess knowledge of a particular subject or mastery of specific skills. Depending on the topic, workshops may be only one or two hours in length or extend across weeks of time. Workshop leaders can strengthen the effectiveness of their presentations through careful planning, organization and presentation practice. Here are the steps for preparing a workshop.'})
+  @stage_toolkit2 = Stoolkit.create({:title => "How to Prepare a Law Workshop 2", :author => 'wikiHow', :category => 'Social', :overview => 'A workshop is an informative or instructional class focused on teaching specialized skills or exploring a particular subject. Workshop presenters are usually educators, subject matter experts, managers or other leaders who possess knowledge of a particular subject or mastery of specific skills. Depending on the topic, workshops may be only one or two hours in length or extend across weeks of time. Workshop leaders can strengthen the effectiveness of their presentations through careful planning, organization and presentation practice. Here are the steps for preparing a workshop.'})
+  
+  @stage_toolkit3 = Stoolkit.create({:title => "Chinese Workshop", :author => 'He', :category => 'Law', :overview => 'Lorem Ipsum'})
+
+  @stage_step1 = Sstep.create({:content => "Define the objective of the workshop. Your objective may be to teach a concrete skill, such as how to create and save documents in a word processing application. Or your aim may be to deliver general information or guidance about a specific topic, such as painting or creative writing. Regardless of the focus, it's important to define the objective first", :number => 1})
+  @stage_step2 = Sstep.create({:content => "Determine the needs of workshop participants. When teaching a particular skill, for example, understanding the participants' needs in regard to skill level and learning pace will assist you in delivering appropriate content. The more you tailor the workshop to your audience, the more effective the workshop will be.", :number => 2})
+
+  @stage_step1_2 = Sstep.create({:content => "Define the objective of the workshop. Your objective may be to teach a concrete skill, such as how to create and save documents in a word processing application. Or your aim may be to deliver general information or guidance about a specific topic, such as painting or creative writing. Regardless of the focus, it's important to define the objective first", :number => 1})
+  @stage_step2_2 = Sstep.create({:content => "Determine the needs of workshop participants. When teaching a particular skill, for example, understanding the participants' needs in regard to skill level and learning pace will assist you in delivering appropriate content. The more you tailor the workshop to your audience, the more effective the workshop will be.", :number => 2})
+  @stage_step3_2 = Sstep.create({:content => "Decide on the order of the topics. Move the most important skills or information to the early part of the workshop. Depending on the subject of the workshop, it may also be useful to introduce and build on each topic, beginning with the simplest or most straight forward topic and concluding with the more difficult or complex topic.", :number => 3})
+  @stage_step4_2 = Sstep.create({:content => "Assign an estimated length of time to each item on the outline. For particularly complicated topics or skills, allot a sufficient amount of time in case participants get stuck or have questions. It is also important to factor in scheduled breaks during the workshop to give the participants a chance to go to the bathroom or stretch their legs.", :number => 4})
+
+
+
+  @stage_toolkit1.ssteps << @stage_step2
+
+  @stage_toolkit1.ssteps << @stage_step1
+
+  @stage_toolkit2.ssteps << @stage_step2_2
+
+  @stage_toolkit2.ssteps << @stage_step1_2
+  @stage_toolkit2.ssteps << @stage_step3_2
+  @stage_toolkit2.ssteps << @stage_step4_2
 
 
   # Seed user data

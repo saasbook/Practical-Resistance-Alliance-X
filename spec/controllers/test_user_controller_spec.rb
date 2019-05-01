@@ -69,4 +69,33 @@ describe UsersController do
       expect(response).to redirect_to("/login")
     end
   end
+
+  describe "edit_request" do
+    it "go to edit request page" do
+      create(:stoolkit)
+      get :edit_request
+      expect(response).to render_template("users/edit_request")
+    end
+  end
+
+  describe "keep_old" do
+    it "keep old toolkit edit" do
+      create(:stoolkit)
+      get :keep_old
+      expect(response).to redirect_to("/edit_request")
+    end
+  end
+
+  describe "keep_new" do
+  it "keep new toolkit edit" do
+      stoolkit = create(:stoolkit)
+      sstep = create :sstep, stoolkit: stoolkit
+      create(:toolkit)
+      title = {
+        :remove => "Test Toolkit"
+      }
+      post :keep_new, params: title
+      expect(response).to redirect_to("/edit_request")
+    end
+  end
 end
