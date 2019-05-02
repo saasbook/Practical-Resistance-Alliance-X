@@ -22,7 +22,19 @@ class ToolkitController < ApplicationController
   end
 
   def update
-
+    @toolkit_data = JSON.parse(request.body.read)
+    @toolkit = Stoolkit.create!({
+     :title => @toolkit_data["title"],
+     :author => "Unknown",
+     :category => @toolkit_data["category"],
+     :overview => @toolkit_data["overview"],
+     :toolkit_id => @toolkit_data["id"]
+    })
+    @toolkit_data["steps"].each {|step, content|
+      @toolkit.steps.create({:content => content, :number => step, :stoolkit_id => @toolkit.id})
+    }
+    flash[:notice] = "Modification success and is now under review"
+    redirect_to "/category/"+@toolkit.category+"/"+@toolkit.id.to_s
   end
 
   def search
