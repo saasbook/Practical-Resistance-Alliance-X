@@ -1,6 +1,7 @@
 FactoryBot.define do
 
     factory :user do
+      id {1}
       email {"joe@gmail.com"}
       password {"123"}
       password_confirmation {"123"}
@@ -12,8 +13,7 @@ FactoryBot.define do
       title {"Test Toolkit"}
       author {"123"}
       category {"123"}
-      created_at {"Oski"}
-      updated_at {"Bear"}
+      toolkit
     end
 
     factory :sstep do
@@ -25,7 +25,5 @@ FactoryBot.define do
       title {"Test Toolkit"}
       author {"123"}
       category {"123"}
-      created_at {"Oski"}
-      updated_at {"Bear"}
     end
 end
