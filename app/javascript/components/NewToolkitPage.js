@@ -7,11 +7,13 @@ export default class NewToolkitPage extends Component {
 
     this.stepsRef = React.createRef();
     const { edit } = this.props;
+    const { toolkit } = this.props;
     this.state = {
+      edit,
       categories: this.props.categories,
-      title: edit ? this.props.toolkit.title : "",
-      overview: edit ? this.props.toolkit.overview : "",
-      category: ""
+      title: edit ? toolkit.title : "",
+      overview: edit ? toolkit.overview : "",
+      category: edit? toolkit.category : ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -36,12 +38,17 @@ export default class NewToolkitPage extends Component {
       category: this.state.category,
       steps
     };
+    if (this.state.edit) {
+      toolkit_data['id'] = this.props.toolkit.id;
+    }
 
     // get csrfToken
     const csrfToken = document.querySelector('[name="csrf-token"]').content;
     // Make request
-    fetch("/toolkit", {
-      method: "POST",
+    let url = this.state.edit ? `/toolkit/${this.props.toolkit.id}` : "/toolkit";
+    let method = this.state.edit ? "PUT" : "POST";
+    fetch(url, {
+      method,
       body: JSON.stringify(toolkit_data),
       headers: new Headers({
         "Content-Type": "application/json",
@@ -109,6 +116,7 @@ export default class NewToolkitPage extends Component {
     return this.props.edit ? <h2>Update The Toolkit</h2> : <h2>Create a New Toolkit</h2>
   }
   render() {
+    console.log(this.props)
     return (
       <div className="container" id="uploadToolkit">
         {this.renderHeader()}

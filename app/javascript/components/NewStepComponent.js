@@ -31,7 +31,7 @@ export default class NewStepComponent extends Component {
     return [...Array(numSteps).keys()].map(num => {
       let step = num + 1;
       return (
-        <div className="input-group my-2" key={num + 1}>
+        <div className="input-group my-2" style={{height: "150px"}} key={num + 1}>
           <div className="input-group-prepend">
             <span className="input-group-text">
               Step &nbsp; <span>{step}</span>
@@ -49,7 +49,6 @@ export default class NewStepComponent extends Component {
     });
   }
   render() {
-    console.log("state", this.state)
     return (
       <div>
         {this.renderSteps()}
