@@ -14,8 +14,8 @@
       <% end %>
     <% end %>
 	<tr>
-		<td><%= button_to "Keep Old Version", keep_old_path(:keep => toolkit[0].title)%></td>
-		<td><%= button_to "Accept Changes", keep_new_path(:remove => toolkit[0].title)%></td>
+		<td><%= button_to "Keep Old Version", keep_old_path(:stoolkit_id => toolkit[1][0].id)%></td>
+		<td><%= button_to "Accept Changes", keep_new_path(:toolkit_id => toolkit[0].id, :stoolkit_id => toolkit[1][0].id)%></td>
 	</tr>
   <% end %>
 </table>
