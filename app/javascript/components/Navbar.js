@@ -15,6 +15,7 @@ class Navbar extends React.Component {
         <input
           className="form-control mr-sm-2"
           type="search"
+          name="search_query"
           placeholder="Search"
           aria-label="Search"
         />
