@@ -74,6 +74,7 @@ group :test do
   gem "factory_bot_rails"
   gem 'metric_fu'        # collect code metrics
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
 end
 
 group :development do
