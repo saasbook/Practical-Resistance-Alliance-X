@@ -80,8 +80,11 @@ describe UsersController do
 
   describe "keep_old" do
     it "keep old toolkit edit" do
-      create(:stoolkit)
-      get :keep_old
+      stoolkit = create(:stoolkit)
+      @params = {
+          stoolkit_id: stoolkit.id
+      }
+      get :keep_old, params: @params
       expect(response).to redirect_to("/edit_request")
     end
   end
@@ -90,11 +93,12 @@ describe UsersController do
   it "keep new toolkit edit" do
       stoolkit = create(:stoolkit)
       sstep = create :sstep, stoolkit: stoolkit
-      create(:toolkit)
-      title = {
-        :remove => "Test Toolkit"
+      toolkit = create(:toolkit)
+      @params = {
+        :stoolkit_id => stoolkit.id,
+        :toolkit_id => toolkit.id
       }
-      post :keep_new, params: title
+      post :keep_new, params: @params
       expect(response).to redirect_to("/edit_request")
     end
   end

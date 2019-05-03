@@ -20,8 +20,20 @@ export class ToolkitViewer extends Component {
     });
   }
 
+  renderEditSection() {
+    return (
+        <div className={`edit-btn-container`}>
+          <div className={`edit-btn-card`}>
+            <div className={`question`}>Would you like to contribute to the toolkit? </div>
+            <div className={`edit-btn`}>
+              <a href={`/toolkit/${this.props.toolkit.id}/edit`}>EDIT</a>
+            </div>
+          </div>
+        </div>
+    );
+  }
+
   render() {
-    console.log(this.props.steps);
     const disqusShortname = "prax-1";
     const disqusConfig = {
       //url: window.location.href,
@@ -49,7 +61,7 @@ export class ToolkitViewer extends Component {
             <p className="text-secondary">{this.props.toolkit.overview}</p>
           </div>
           <div className="container">{this.renderSteps()}</div>
-
+          <div className={"container"}>{this.renderEditSection()}</div>
           <div className="m-5">
             <Disqus.DiscussionEmbed
               shortname={disqusShortname}

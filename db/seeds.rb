@@ -74,6 +74,11 @@ when "development"
   @stage_toolkit2.ssteps << @stage_step3_2
   @stage_toolkit2.ssteps << @stage_step4_2
 
+  @toolkit1.stoolkits << @stage_toolkit1
+  @toolkit2.stoolkits << @stage_toolkit2
+  @toolkit3.stoolkits << @stage_toolkit3
+
+
 
   # Seed user data
   User.create!(firstName:  "Oski",

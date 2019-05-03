@@ -33,3 +33,8 @@ Feature: User navigate between pages
     Given I am on the Law page
     When I follow "Add a new toolkit"
     Then I should be on the login page
+
+  Scenario: Cannot go to edit toolkit page wihout login
+    Given I am on the Law Workshop Page
+    When I follow "EDIT"
+    Then I should be on the login page

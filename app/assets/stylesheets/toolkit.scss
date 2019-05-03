@@ -5,3 +5,46 @@
   padding-right: 50px;
   padding-left: 50px;
 }
+
+.edit-btn-container {
+  text-align: center;
+
+  .edit-btn-card {
+
+    background: #ffffff;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+
+    .question {
+      font-size: 1.5rem;
+      font-weight: 200;
+      color: #212121;
+    }
+
+    .edit-btn {
+      font-size: 1rem;
+
+      background: #02b3e4;
+      color: #ffffff;
+      max-width: 200px;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 1px 1px 8px rgb(211,211,211);
+      transition: all 0.3s linear;
+
+      a{
+        color: white;
+        padding: 0.6rem 1.5rem;
+        text-decoration: none;
+        display: block;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: #0086b3;
+        box-shadow: 1px 5px 12px rgb(211,211,211);
+      }
+    }
+  }
+}

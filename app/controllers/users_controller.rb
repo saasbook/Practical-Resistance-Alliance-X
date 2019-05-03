@@ -17,26 +17,27 @@ class UsersController < ApplicationController
 
   def edit_request
     @result = []
-    Stoolkit.all.each do |toolkit|
-      @result.push([toolkit, Toolkit.where(title: toolkit.title)])
+    Stoolkit.all.each do |stoolkit|
+      @result.push([stoolkit, Toolkit.where(id: stoolkit.toolkit_id).first])
     end
   end
 
   def keep_old
-    Stoolkit.where(title: params[:keep]).destroy_all
+    Stoolkit.destroy(params[:stoolkit_id])
     redirect_to edit_request_path
   end
 
   def keep_new
-    stoolkit = Stoolkit.where(title: params[:remove]).first
-    toolkit = Toolkit.where(title: params[:remove]).first
+    stoolkit = Stoolkit.where(id: params[:stoolkit_id]).first
+    toolkit = Toolkit.where(id: params[:toolkit_id]).first
     toolkit.steps.destroy_all
     stoolkit.ssteps.all.each do |steps|
       hash = steps.attributes
-      hash['toolkit_id'] = hash.delete("stoolkit_id")
+      hash.delete("id")
+      hash.delete("stoolkit_id")
       toolkit.steps.create(hash)
     end
-    Stoolkit.where(title: params[:remove]).destroy_all
+    Stoolkit.destroy(params[:stoolkit_id])
     redirect_to edit_request_path
   end
 

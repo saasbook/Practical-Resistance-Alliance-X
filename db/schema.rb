@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2019_04_25_232303) do
     t.string "author"
     t.string "category"
     t.text "overview"
+    t.integer "toolkit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

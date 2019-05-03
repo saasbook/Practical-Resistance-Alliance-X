@@ -4,9 +4,17 @@ export default class NewStepComponent extends Component {
   constructor(props) {
     super(props);
 
+    const {edit} = this.props;
+    console.log(this.props);
+    const steps = {};
+    if (edit) {
+      this.props.steps.forEach((s) => {
+        steps[s.number] = s.content
+      });
+    }
     this.state = {
-      numSteps: 1,
-      steps: {}
+      numSteps: edit ? this.props.steps.length : 1,
+      steps,
     };
 
     this.renderSteps = this.renderSteps.bind(this);
@@ -29,7 +37,7 @@ export default class NewStepComponent extends Component {
     return [...Array(numSteps).keys()].map(num => {
       let step = num + 1;
       return (
-        <div className="input-group my-2" key={num + 1}>
+        <div className="input-group my-2" style={{height: "150px"}} key={step}>
           <div className="input-group-prepend">
             <span className="input-group-text">
               Step &nbsp; <span>{step}</span>
