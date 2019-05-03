@@ -16,6 +16,20 @@ describe ToolkitController do
             expect(response).to redirect_to("/category/Law/1")            
         end
     end
+    describe ".update" do
+        it "update a toolkit" do
+            toolkit = create(:toolkit)
+            stoolkit = Hash.new
+            stoolkit["title"] = "stoolkit"
+            stoolkit["author"] = "Unknown"
+            stoolkit["category"] = "Law"
+            stoolkit["overview"] = "overview"
+            stoolkit["toolkit_id"] = toolkit.id
+            put :update, body: stoolkit.to_json, format: :json, params: {id:toolkit.id}
+
+            expect(response).to redirect_to("/category/"+ toolkit.category + "/"+ toolkit.id)
+        end
+    end
     describe ".search" do
         it "finds a searched toolkit by category" do
             Toolkit.create!({
