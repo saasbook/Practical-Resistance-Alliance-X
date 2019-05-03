@@ -41,7 +41,6 @@ export default class NewToolkitPage extends Component {
     if (this.state.edit) {
       toolkit_data['id'] = this.props.toolkit.id;
     }
-
     // get csrfToken
     const csrfToken = document.querySelector('[name="csrf-token"]').content;
     // Make request
@@ -116,7 +115,6 @@ export default class NewToolkitPage extends Component {
     return this.props.edit ? <h2>Update The Toolkit</h2> : <h2>Create a New Toolkit</h2>
   }
   render() {
-    console.log(this.props)
     return (
       <div className="container" id="uploadToolkit">
         {this.renderHeader()}

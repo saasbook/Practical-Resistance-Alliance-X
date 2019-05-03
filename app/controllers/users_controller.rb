@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def edit_request
     @result = []
     Stoolkit.all.each do |stoolkit|
-      @result.push([stoolkit, Toolkit.where(id: stoolkit.toolkit_id)])
+      @result.push([stoolkit, Toolkit.where(id: stoolkit.toolkit_id).first])
     end
   end
 

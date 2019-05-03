@@ -29,11 +29,14 @@ class ToolkitController < ApplicationController
      :author => "Unknown",
      :category => @toolkit_data["category"],
      :overview => @toolkit_data["overview"],
-     :toolkit_id => @toolkit_data["id"]
+     :toolkit_id => @toolkit.id
     })
+
     @toolkit_data["steps"].each {|step, content|
-      @stoolkit.ssteps.create({:content => content, :number => step, :stoolkit_id => @stoolkit.id})
+      puts "content type", content.class
+      @stoolkit.ssteps.create({:content => content, :number => step})
     }
+    @stoolkit.save()
     flash[:notice] = "Modification success and is now under review"
     redirect_to "/category/"+@toolkit.category+"/"+@toolkit.id.to_s
   end
