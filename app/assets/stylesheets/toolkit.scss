@@ -24,7 +24,7 @@
 
     .edit-btn {
       font-size: 1rem;
-      padding: 0.6rem 1.5rem;
+
       background: #02b3e4;
       color: #ffffff;
       max-width: 200px;
@@ -32,6 +32,13 @@
       border-radius: 12px;
       box-shadow: 1px 1px 8px rgb(211,211,211);
       transition: all 0.3s linear;
+
+      a{
+        color: white;
+        padding: 0.6rem 1.5rem;
+        text-decoration: none;
+        display: block;
+      }
 
       &:hover {
         cursor: pointer;
