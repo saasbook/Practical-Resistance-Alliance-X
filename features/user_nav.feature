@@ -12,6 +12,11 @@ Feature: User navigate between pages
       | Law Workshop 2   | me     | Law      | Lorem Ipsum |
       | Chinese Workshop | me     | Social   | Lorem Ipsum |
 
+    Given the following categories exist
+      | name   |
+      | Law    |
+      | Social |
+
     And I am on the home page
 
   Scenario: Go to category page from index page
