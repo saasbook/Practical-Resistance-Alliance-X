@@ -22,6 +22,9 @@ module NavigationHelpers
     when /^the new toolkit\s?page$/
       '/newtoolkit'
 
+    when /^the new category page$/
+      '/newcategory'
+
     when /^the Law\s?page$/
       '/category/Law'
 
@@ -51,6 +54,9 @@ module NavigationHelpers
 
     when /^the Law Workshop edit page$/
       '/toolkit/1/edit'
+
+    when /^the search results page$/
+      '/toolkit/search'
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

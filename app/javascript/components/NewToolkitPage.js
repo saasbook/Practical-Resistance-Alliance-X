@@ -13,7 +13,7 @@ export default class NewToolkitPage extends Component {
       categories: this.props.categories,
       title: edit ? toolkit.title : "",
       overview: edit ? toolkit.overview : "",
-      category: edit? toolkit.category : ""
+      category: edit ? toolkit.category : ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -39,12 +39,14 @@ export default class NewToolkitPage extends Component {
       steps
     };
     if (this.state.edit) {
-      toolkit_data['id'] = this.props.toolkit.id;
+      toolkit_data["id"] = this.props.toolkit.id;
     }
     // get csrfToken
     const csrfToken = document.querySelector('[name="csrf-token"]').content;
     // Make request
-    let url = this.state.edit ? `/toolkit/${this.props.toolkit.id}` : "/toolkit";
+    let url = this.state.edit
+      ? `/toolkit/${this.props.toolkit.id}`
+      : "/toolkit";
     let method = this.state.edit ? "PUT" : "POST";
     fetch(url, {
       method,
@@ -112,7 +114,11 @@ export default class NewToolkitPage extends Component {
   }
 
   renderHeader() {
-    return this.props.edit ? <h2>Update The Toolkit</h2> : <h2>Create a New Toolkit</h2>
+    return this.props.edit ? (
+      <h2>Update The Toolkit</h2>
+    ) : (
+      <h2>Create a New Toolkit</h2>
+    );
   }
   render() {
     return (
@@ -125,9 +131,9 @@ export default class NewToolkitPage extends Component {
           <div className="form-group">
             <label htmlFor="steps">Steps:</label>
             <NewStepComponent
-                ref={this.stepsRef}
-                edit={this.props.edit}
-                steps={this.props.steps}
+              ref={this.stepsRef}
+              edit={this.props.edit}
+              steps={this.props.steps}
             />
           </div>
           <div className="mx-auto my-3" style={{ width: "100px" }}>

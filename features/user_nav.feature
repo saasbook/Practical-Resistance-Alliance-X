@@ -12,6 +12,11 @@ Feature: User navigate between pages
       | Law Workshop 2   | me     | Law      | Lorem Ipsum |
       | Chinese Workshop | me     | Social   | Lorem Ipsum |
 
+    Given the following categories exist
+      | name   |
+      | Law    |
+      | Social |
+
     And I am on the home page
 
   Scenario: Go to category page from index page
@@ -37,4 +42,9 @@ Feature: User navigate between pages
   Scenario: Cannot go to edit toolkit page wihout login
     Given I am on the Law Workshop Page
     When I follow "EDIT"
+    Then I should be on the login page
+
+  Scenario: Cannot go to create new category page without login
+    Given I am on the category page
+    When I follow "Add a new category"
     Then I should be on the login page

@@ -1,6 +1,6 @@
 class ToolkitController < ApplicationController
   require 'set'
-  before_action :set_user, only: [:edit]
+  before_action :set_user, only: [:edit, :new]
 
   def create
     @toolkit_data = JSON.parse(request.body.read)
@@ -41,22 +41,21 @@ class ToolkitController < ApplicationController
     redirect_to "/category/"+@toolkit.category+"/"+@toolkit.id.to_s
   end
 
+  def new
+    query = Category.select(:name).map(&:name).uniq
+    @categories = []
+    query.each do |q|
+        @categories.push(q)
+    end
+    puts @categories
+  end
+
   def search
     query = params[:search].presence && params[:search][:query].presence
-    puts "q", params
     if !query.nil?
-      # search_queries = params[:search][:query].split(' ')
       search = params[:search][:query]
       puts search
       @search_results = Toolkit.where("lower(title) LIKE lower(?)", "%#{search}%")
-      # @search_results = Toolkit.where("lower(title) IN (?)", "%#{search_queries}%")
-      # ["startups.locations IN (?)", @sea_countries]
-      # @search_results = Set[]
-      # search_queries.each do |search|
-      #   @search_results.add Toolkit.where("lower(title) LIKE lower(?)", "%#{search}%")
-      # end
-    else
-      @search_results = []
     end
   end
 
@@ -69,4 +68,5 @@ class ToolkitController < ApplicationController
       redirect_to login_path
     end
   end
+
 end
