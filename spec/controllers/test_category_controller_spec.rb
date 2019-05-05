@@ -35,8 +35,8 @@ describe CategoryController do
                 :category => "Law",
                 :overview => "lacdjnasuil"
             })
-            post :search, :params => {:search => {"query"=>"Law"}}
-            expect(response).to render_template(:search)
+            get :display, :params => {:kind => "Law", :id => 1}
+            expect(response).to render_template(:display)
         end
     end
     
