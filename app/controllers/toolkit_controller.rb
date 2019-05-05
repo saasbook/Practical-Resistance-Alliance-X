@@ -1,6 +1,6 @@
 class ToolkitController < ApplicationController
   require 'set'
-  before_action :set_user, only: [:edit]
+  before_action :set_user, only: [:edit, :new]
 
   def create
     @toolkit_data = JSON.parse(request.body.read)
