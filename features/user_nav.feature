@@ -43,3 +43,8 @@ Feature: User navigate between pages
     Given I am on the Law Workshop Page
     When I follow "EDIT"
     Then I should be on the login page
+
+  Scenario: Cannot go to create new category page without login
+    Given I am on the category page
+    When I follow "Add a new category"
+    Then I should be on the login page
