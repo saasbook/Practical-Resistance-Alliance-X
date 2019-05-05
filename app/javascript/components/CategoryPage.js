@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NewCategoryButton from './NewCategoryButton'
+import NewCategoryButton from "./NewCategoryButton";
 
 export class CategoryPage extends Component {
   constructor(props) {
