@@ -23,8 +23,8 @@ describe CategoryController do
             Category.create!({
                 :name => "Law"
             })
-            get :show, :params => {"Law"}
-            expect(response).to redirect_to("category/Law")
+            get :show, :params => {:kind => "Law"}
+            expect(response).to render_template(:show)
         end
     end
     describe ".display" do
