@@ -15,6 +15,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_request
+    @result = []
+    Stoolkit.all.each do |stoolkit|
+      @result.push([stoolkit, Toolkit.where(id: stoolkit.toolkit_id).first])
+    end
+  end
+
+  def keep_old
+    Stoolkit.destroy(params[:stoolkit_id])
+    redirect_to edit_request_path
+  end
+
+  def keep_new
+    stoolkit = Stoolkit.where(id: params[:stoolkit_id]).first
+    toolkit = Toolkit.where(id: params[:toolkit_id]).first
+    toolkit.steps.destroy_all
+    stoolkit.ssteps.all.each do |steps|
+      hash = steps.attributes
+      hash.delete("id")
+      hash.delete("stoolkit_id")
+      toolkit.steps.create(hash)
+    end
+    Stoolkit.destroy(params[:stoolkit_id])
+    redirect_to edit_request_path
+  end
+
   # GET /users/new
   def new
     @user = User.new()
@@ -34,7 +60,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Sign Up Success.' }
         format.json { render :show, status: :created, location: @user }
       else
         @info = {:title => "New User", :button_name => "Sign Up", :new_user => true}

@@ -7,7 +7,7 @@ export default class NewCategoryPage extends Component {
 
     this.stepsRef = React.createRef();
     this.state = {
-      name: "",
+      name: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -20,7 +20,7 @@ export default class NewCategoryPage extends Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const category_data = {
-      name: this.state.name,
+      name: this.state.name
     };
 
     // get csrfToken
@@ -49,6 +49,7 @@ export default class NewCategoryPage extends Component {
         <input
           className="form-control"
           name="name"
+          id="new_category"
           value={this.state.name}
           onChange={this.handleChange}
           placeholder="Enter the category name here"

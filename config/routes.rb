@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'newtoolkit', to: 'toolkit#new'
   get 'newcategory', to: 'category#new'
   get 'signup', to: 'users#new', as: 'signup'
+  get 'edit_request', to: 'users#edit_request', as: 'edit_request'
+  post 'keep_new', to: 'users#keep_new', as: 'keep_new'
+  post 'keep_old', to: 'users#keep_old', as: 'keep_old'
+
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
@@ -22,6 +26,13 @@ Rails.application.routes.draw do
   # post requests
   post 'toolkit', to: 'toolkit#create'
   post 'category', to: 'category#create'
+
+  get 'toolkit/:id/edit', to: 'toolkit#edit', as: 'edit_toolkit'
+
+  get 'toolkit/:id/delete', to: 'toolkit#delete', as: 'delete_toolkit'
+
+  # put requests
+  put 'toolkit/:id', to: 'toolkit#update'
 
   resources :toolkit do
     collection do
