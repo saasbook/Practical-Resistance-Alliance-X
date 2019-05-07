@@ -43,5 +43,18 @@ describe ToolkitController do
             expect(response).to render_template(:search)
         end
     end
-    
+
+    describe ".delete" do
+        it "deletes a toolkit" do
+            toolkit = Toolkit.create!({
+                :title => "test title", 
+                :author => "Unknown", 
+                :category => "Law",
+                :overview => "lacdjnasuil",
+                :id => "1"
+            })
+            post :delete, params: {id: toolkit.id}
+            expect(response).to redirect_to("/category/index")
+        end
+    end
 end

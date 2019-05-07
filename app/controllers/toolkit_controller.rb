@@ -21,6 +21,11 @@ class ToolkitController < ApplicationController
     @steps = @toolkit.steps.order({:number => :asc})
   end
 
+  def delete
+    @toolkit = Toolkit.where(id: params[:id]).destroy_all
+    redirect_to "/category/index"
+  end
+
   def update
     @toolkit_data = JSON.parse(request.body.read)
     @toolkit = Toolkit.where(:id => @toolkit_data["id"]).first

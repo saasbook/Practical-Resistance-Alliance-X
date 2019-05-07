@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   get 'toolkit/:id/edit', to: 'toolkit#edit', as: 'edit_toolkit'
 
+  get 'toolkit/:id/delete', to: 'toolkit#delete', as: 'delete_toolkit'
+
   # put requests
   put 'toolkit/:id', to: 'toolkit#update'
 

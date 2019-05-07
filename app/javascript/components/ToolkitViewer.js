@@ -21,16 +21,33 @@ export class ToolkitViewer extends Component {
   }
 
   renderEditSection() {
-    return (
-        <div className={`edit-btn-container`}>
-          <div className={`edit-btn-card`}>
-            <div className={`question`}>Would you like to contribute to the toolkit? </div>
-            <div className={`edit-btn`}>
-              <a href={`/toolkit/${this.props.toolkit.id}/edit`}>EDIT</a>
+    if (this.props.user && this.props.user.admin){
+      return (
+          <div className={`edit-btn-container`}>
+            <div className={`edit-btn-card`}>
+              <div className={`question`}>Would you like to contribute to the toolkit? </div>
+              <div className={`edit-btn`}>
+                <a href={`/toolkit/${this.props.toolkit.id}/edit`}>EDIT</a>
+              </div>
+              <div className={`edit-btn`}>
+                <a href={`/toolkit/${this.props.toolkit.id}/delete`}>DELETE</a>
+              </div>
             </div>
           </div>
-        </div>
-    );
+      );
+    }
+    else {
+      return (
+          <div className={`edit-btn-container`}>
+            <div className={`edit-btn-card`}>
+              <div className={`question`}>Would you like to contribute to the toolkit? </div>
+              <div className={`edit-btn`}>
+                <a href={`/toolkit/${this.props.toolkit.id}/edit`}>EDIT</a>
+              </div>
+            </div>
+          </div>
+      );
+    }
   }
 
   render() {
