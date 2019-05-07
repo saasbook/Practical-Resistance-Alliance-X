@@ -3,4 +3,4 @@
     <span><%= flash[:notice] %></span>
   </div>
 <% end %>
-<%= react_component("ToolkitViewer", {kind: @kind, toolkit: @toolkit, steps: @steps}, {prerender: true}) %>
+<%= react_component("ToolkitViewer", {kind: @kind, toolkit: @toolkit, steps: @steps, user: current_user}, {prerender: true}) %>
