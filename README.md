@@ -20,5 +20,10 @@ $ rake db:setup # if you already have db, use rake db:reset
 $ rails s
 ```
 
+## Test
+```bash
+$ rspec && cucumber
+```
+
 ## Deploy
 Heroku: https://thawing-reef-55587.herokuapp.com/
