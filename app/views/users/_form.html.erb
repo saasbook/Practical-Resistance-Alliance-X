@@ -1,0 +1,48 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <div class="container" id="signupLoginForm">
+    <div id="innerSignup">
+      <h2 style="text-align:center;"><%= @info[:title] %></h2>
+
+      <% if user.errors.any? %>
+        <div class="alert alert-danger error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> Somthing wrong with infomation entered:</h2>
+
+          <ul>
+          <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field" id="form-group">
+        <%= form.label :email %>
+        <%= form.text_field :email, class: "form-control", :required => @info[:new_user] %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: "form-control", :required => @info[:new_user] %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :Confirm_Password%>
+        <%= form.password_field :password_confirmation, class: "form-control", :required => @info[:new_user] %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :firstName, 'First Name' %>
+        <%= form.text_field :firstName, class: "form-control", :required => @info[:new_user] %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :lastName, 'Last Name' %>
+        <%= form.text_field :lastName, class: "form-control", :required => @info[:new_user] %>
+      </div>
+
+      <div class="actions"> 
+        <%= form.submit @info[:button_name], :class => 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>

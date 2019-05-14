@@ -1,0 +1,23 @@
+<% if notice %>
+  <div class="alert alert-success" style="text-align:center;">
+    <span><%= notice %></span>
+  </div>
+<% end %>
+<div class="container mt-5">
+  <div class="w-75 mx-auto">
+    <h1><%= @user.firstName + "'s Dashboard"%></h1>
+    <div class="m-3">
+      <% if current_user.id == @user.id %>
+        <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-outline-primary float-right" %>
+      <% end %>
+      <h5>
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <%= @user.firstName %>  <%= @user.lastName %>
+      </h5>
+      <h5>
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <%= @user.email %>
+      </h5>
+    </div>
+  </div>
+</div>

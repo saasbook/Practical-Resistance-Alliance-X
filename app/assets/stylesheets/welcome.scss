@@ -1,0 +1,45 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.landing {
+  height: 100vh;
+  padding-bottom: 0;
+  background: image-url("landing.png");
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+
+  .landing-center {
+    padding-top: 15%;
+
+    h1 {
+      font-weight: 700;
+      font-size: 3rem;
+    }
+    button {
+      margin: 20px;
+      font-size: 1.5rem;
+    }
+
+    .btn-primary {
+      box-shadow: 8px 10px 20px 0px rgba(46, 61, 73, 0.15);
+
+      &:hover {
+        box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2);
+      }
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .lading {
+    height: 100vh;
+    // min-height: 40rem;
+    padding-top: 72px;
+    padding-bottom: 0;
+  }
+}

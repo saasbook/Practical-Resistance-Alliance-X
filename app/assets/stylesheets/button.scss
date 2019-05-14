@@ -1,0 +1,56 @@
+.new-toolkit-button {
+  border-radius: 15px;
+  border: 5px #dfdfdf dashed;
+  height: 420px;
+
+  .button-content {
+    margin: auto;
+    text-align: center;
+    color: #a8a8a8;
+    font-size: 2rem;
+    margin-top: 150px;
+    transition: all 0.3s linear;
+
+    i {
+      font-size: 5rem;
+    }
+
+    &:hover {
+      color: #858585;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.new-category-button {
+  margin: 20px auto;
+  height: 200px;
+  width: 300px;
+  text-align: center;
+  background: white;
+  color: #a8a8a8;
+  border-radius: 8px;
+  border: 5px #dfdfdf dashed;
+  transition: box-shadow 0.3s ease;
+
+  .button-content {
+    margin: auto;
+    text-align: center;
+    color: #a8a8a8;
+    font-size: 1.2rem;
+    margin-top: 65px;
+    transition: all 0.3s linear;
+
+    i {
+      font-size: 2.5rem;
+    }
+
+    &:hover {
+      color: #858585;
+    }
+  }
+
+}

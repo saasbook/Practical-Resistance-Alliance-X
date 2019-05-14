@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container mt-5">
+  <h1 >Users Table</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col" colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td scope="row"><%= user.email %></td>
+          <td><%= user.firstName %></td>
+          <td><%= user.lastName %></td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Delete user', user, method: :delete, data: { confirm: 'Deleting user: Are you sure??' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+</div>
