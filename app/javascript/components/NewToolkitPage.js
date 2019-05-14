@@ -53,7 +53,7 @@ export default class NewToolkitPage extends Component {
       title: this.state.title,
       overview: this.state.overview,
       categories: this.state.selected_categories,
-      steps: this.stepsRef.current.state;
+      steps: this.stepsRef.current.state
     };
     if (this.state.edit) {
       toolkit_data["id"] = this.props.toolkit.id;
