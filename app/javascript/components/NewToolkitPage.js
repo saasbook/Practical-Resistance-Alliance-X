@@ -48,14 +48,12 @@ export default class NewToolkitPage extends Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    // pack data
-    const { steps } = this.stepsRef.current.state;
     // const { intermediates } = this.intermediateRef.current.state;
     const toolkit_data = {
       title: this.state.title,
       overview: this.state.overview,
       categories: this.state.selected_categories,
-      steps
+      steps: this.stepsRef.current.state;
     };
     if (this.state.edit) {
       toolkit_data["id"] = this.props.toolkit.id;
@@ -63,17 +61,12 @@ export default class NewToolkitPage extends Component {
     // get csrfToken
     const csrfToken = document.querySelector('[name="csrf-token"]').content;
     // Make request
-    let url = this.state.edit
-      ? `/toolkit/${this.props.toolkit.id}`
-      : "/toolkit";
+    let url = this.state.edit ? `/toolkit/${this.props.toolkit.id}` : "/toolkit";
     const method = "POST";
     fetch(url, {
       method,
       body: JSON.stringify(toolkit_data),
-      headers: new Headers({
-        "Content-Type": "application/json",
-        "X-CSRF-Token": csrfToken
-      })
+      headers: new Headers({ "Content-Type": "application/json", "X-CSRF-Token": csrfToken })
     })
       .then(res => {
         if (res.redirected) {
@@ -159,11 +152,7 @@ export default class NewToolkitPage extends Component {
             />
           </div>
           <div className="mx-auto my-3" style={{ width: "100px" }}>
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={this.handleOnSubmit.bind(this)}
-            >
+            <button type="submit" className="btn btn-primary" onClick={this.handleOnSubmit.bind(this)}>
               {this.props.edit ? "Update" : "Submit"}
             </button>
           </div>
