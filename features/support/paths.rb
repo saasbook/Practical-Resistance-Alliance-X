@@ -29,7 +29,7 @@ module NavigationHelpers
       '/category/Law'
 
     when /^the Law Workshop\s?page$/
-      '/category/Law/1'
+      '/toolkit/1'
 
     when /^the login\s?page$/
       '/login'
@@ -56,7 +56,7 @@ module NavigationHelpers
       '/toolkit/1/edit'
 
     when /^the search results page$/
-      '/toolkit/search'
+      '/search'
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

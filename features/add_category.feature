@@ -10,4 +10,4 @@ Feature: Add Category
       Given I am on the new category page
       When I fill in "new_category" with "Education"
       Then I press "Submit"
-      Then I should be on the new category page
+

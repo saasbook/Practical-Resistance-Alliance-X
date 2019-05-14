@@ -5,17 +5,18 @@ Feature: User navigate between pages
 
   Background: toolkits have been add to database
 
-    Given the following toolkits exist
-
-      | title            | author | category | overview    |
-      | Law Workshop     | me     | Law      | Lorem Ipsum |
-      | Law Workshop 2   | me     | Law      | Lorem Ipsum |
-      | Chinese Workshop | me     | Social   | Lorem Ipsum |
 
     Given the following categories exist
       | name   |
       | Law    |
       | Social |
+
+    Given the following toolkits exist
+
+      | title            | author | overview    |
+      | Law Workshop     | me     | Lorem Ipsum |
+      | Law Workshop 2   | me     | Lorem Ipsum |
+      | Chinese Workshop | me     | Lorem Ipsum |
 
     And I am on the home page
 
