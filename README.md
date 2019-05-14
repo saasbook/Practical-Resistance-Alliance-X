@@ -15,9 +15,9 @@ The app integrates ReactJS and Rails using [react-rails](https://github.com/reac
 
 ```bash
 $ bundle install --without production
-$ yarn
+$ yarn # Install Javascript dependencies
 $ rake db:setup # if you already have db, use rake db:reset
-$ rails s
+$ rails server
 ```
 
 ## Test
