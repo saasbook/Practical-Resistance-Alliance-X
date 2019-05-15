@@ -15,7 +15,6 @@ export default class NewToolkitPage extends Component {
       title: edit ? toolkit.title : "",
       overview: edit ? toolkit.overview : "",
       selected_categories: []
-      
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
@@ -23,7 +22,13 @@ export default class NewToolkitPage extends Component {
 
   renderCategories() {
     return this.state.categories.map(category => {
-      return <div> <input type="checkbox" key={category} value={category} /> {category} <br></br> </div>
+      return (
+        <div>
+          {" "}
+          <input type="checkbox" key={category} value={category} /> {category}{" "}
+          <br />{" "}
+        </div>
+      );
     });
   }
 
@@ -36,30 +41,19 @@ export default class NewToolkitPage extends Component {
     const { value } = e.target;
     if (e.target.checked) {
       // this.setState({selected_categories: this.state.selected_categories.concat([e.target.value])});
-      this.setState( prevState => ({
-        selected_categories : [...prevState.selected_categories, value] 
+      this.setState(prevState => ({
+        selected_categories: [...prevState.selected_categories, value]
       }));
     } else {
-      this.setState( prevState => ({
-        selected_categories : prevState.selected_categories.filter(category => category != value)
+      this.setState(prevState => ({
+        selected_categories: prevState.selected_categories.filter(
+          category => category != value
+        )
       }));
     }
   }
 
-  handleOnSubmit(e) {
-    e.preventDefault();
-    // pack data
-    const { steps } = this.stepsRef.current.state;
-    // const { intermediates } = this.intermediateRef.current.state;
-    const toolkit_data = {
-      title: this.state.title,
-      overview: this.state.overview,
-      categories: this.state.selected_categories,
-      steps
-    };
-    if (this.state.edit) {
-      toolkit_data["id"] = this.props.toolkit.id;
-    }
+  submitHelper(toolkit_data) {
     // get csrfToken
     const csrfToken = document.querySelector('[name="csrf-token"]').content;
     // Make request
@@ -82,6 +76,23 @@ export default class NewToolkitPage extends Component {
       })
       .catch(error => console.error("Error:", error))
       .then(response => console.log("Success:", response));
+  }
+
+  handleOnSubmit(e) {
+    e.preventDefault();
+    // pack data
+    const { steps } = this.stepsRef.current.state;
+    // const { intermediates } = this.intermediateRef.current.state;
+    const toolkit_data = {
+      title: this.state.title,
+      overview: this.state.overview,
+      categories: this.state.selected_categories,
+      steps
+    };
+    if (this.state.edit) {
+      toolkit_data["id"] = this.props.toolkit.id;
+    }
+    this.submitHelper(toolkit_data);
   }
 
   renderFormTitle() {
@@ -117,19 +128,19 @@ export default class NewToolkitPage extends Component {
 
   renderFormCategory() {
     if (this.props.edit) {
-      return (<div></div>);
+      return <div />;
     } else {
       return (
         <div className="form-group">
-        <label htmlFor="categoryTag">Categories:</label>
-        <form
-          className="form-check"
-          name="categories"
-          onChange={this.handleCheckboxChange}
-        >
-          {this.renderCategories()}
-        </form>
-      </div>
+          <label htmlFor="categoryTag">Categories:</label>
+          <form
+            className="form-check"
+            name="categories"
+            onChange={this.handleCheckboxChange}
+          >
+            {this.renderCategories()}
+          </form>
+        </div>
       );
     }
   }
@@ -141,7 +152,7 @@ export default class NewToolkitPage extends Component {
       <h2>Create a New Toolkit</h2>
     );
   }
-  
+
   render() {
     return (
       <div className="container" id="uploadToolkit">
@@ -159,11 +170,7 @@ export default class NewToolkitPage extends Component {
             />
           </div>
           <div className="mx-auto my-3" style={{ width: "100px" }}>
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={this.handleOnSubmit.bind(this)}
-            >
+            <button type="submit" className="btn btn-primary" onClick={this.handleOnSubmit.bind(this)}>
               {this.props.edit ? "Update" : "Submit"}
             </button>
           </div>
